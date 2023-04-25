@@ -256,6 +256,15 @@ Route101_EventScript_HideBrendanInBedroom::
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM
 	return
 
+Route101_EventScript_AquaGrunt1::
+	lock
+	faceplayer
+	msgbox Route101_Text_WeCantTalkAboutAquaActivities, MSGBOX_DEFAULT
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
+	end
+
 Route101_Movement_BirchApproachPlayer:
 	walk_right
 	step_end
@@ -300,3 +309,6 @@ Route101_Text_RouteSign:
 	.string "ROUTE 101\n"
 	.string "{UP_ARROW} OLDALE TOWN$"
 
+Route101_Text_WeCantTalkAboutAquaActivities:
+	.string "This is an active worksite.\n"
+	.string "Move along please.$"

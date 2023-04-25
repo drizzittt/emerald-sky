@@ -305,6 +305,25 @@ LittlerootTown_EventScript_DangerousWithoutPokemon::
 	closemessage
 	return
 
+LittlerootTown_EventScript_BlockedGrove::
+	setvar VAR_LITTLEROOT_TOWN_GROVE, 0
+	lockall
+	msgbox LittlerootTown_Text_BlockedGrove, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_BlockedGrove
+	waitmovement 0
+	releaseall
+	end
+
+LittlerootTown_Text_BlockedGrove::
+	.string "This is the Professor's Grove.\n"
+	.string "I shouldn't go in without permission.$"
+
+LittlerootTown_Movement_BlockedGrove::
+	face_left
+	walk_left
+	step_end
+
 LittlerootTown_Movement_TwinApproachPlayerLeft:
 	face_right
 	delay_8
