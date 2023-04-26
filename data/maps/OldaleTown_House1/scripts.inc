@@ -3,6 +3,7 @@ OldaleTown_House1_MapScripts::
 
 OldaleTown_House1_EventScript_Woman::
 	msgbox OldaleTown_House1_Text_LeftPokemonGoesOutFirst, MSGBOX_NPC
+	setvar VAR_LITTLEROOT_TOWN_GROVE, 1
 	end
 
 OldaleTown_House1_Text_LeftPokemonGoesOutFirst:
