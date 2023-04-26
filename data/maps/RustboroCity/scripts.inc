@@ -223,6 +223,10 @@ RustboroCity_EventScript_CuttersHouseSign::
 	msgbox RustboroCity_Text_CuttersHouse, MSGBOX_SIGN
 	end
 
+RustboroCity_EventScript_DevonLabSign::
+	msgbox RustboroCity_Text_DevonLabSign, MSGBOX_SIGN
+	end
+
 RustboroCity_EventScript_LittleBoy::
 	lock
 	faceplayer
@@ -1238,6 +1242,9 @@ RustboroCity_Text_DevonCorpSign:
 	.string "DEVON CORPORATION\p"
 	.string "“For all your living needs, we make\n"
 	.string "it all.”$"
+
+RustboroCity_Text_DevonLabSign:
+	.string "Devon Corporation Laboratory$"
 
 RustboroCity_Text_GymSign:
 	.string "RUSTBORO CITY POKéMON GYM\n"
