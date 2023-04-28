@@ -28,6 +28,7 @@ LilycoveCity_DepartmentStore_2F_Pokemart1:
 	.2byte ITEM_POKE_BALL
 	.2byte ITEM_GREAT_BALL
 	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_QUICK_BALL
 	.2byte ITEM_ESCAPE_ROPE
 	.2byte ITEM_FULL_HEAL
 	.2byte ITEM_ANTIDOTE
@@ -56,6 +57,7 @@ LilycoveCity_DepartmentStore_2F_Pokemart2:
 	.2byte ITEM_SUPER_POTION
 	.2byte ITEM_HYPER_POTION
 	.2byte ITEM_MAX_POTION
+	.2BYTE ITEM_FULL_RESTORE
 	.2byte ITEM_REVIVE
 	.2byte ITEM_REPEL
 	.2byte ITEM_SUPER_REPEL
