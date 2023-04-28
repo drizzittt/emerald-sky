@@ -194,7 +194,15 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_UNUSED_0x4083",
+      "var_value": "0",
+      "script": "LittlerootTown_BrendansHouse_2F_EventScript_SetTheClock"
+    }
   ],
   "bg_events": [
     {

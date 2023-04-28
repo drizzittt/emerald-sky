@@ -39,6 +39,21 @@ LittlerootTown_BrendansHouse_2F_EventScript_SetReadyToMeetBrendan::
 	setvar VAR_LITTLEROOT_RIVAL_STATE, 2
 	return
 
+LittlerootTown_BrendansHouse_2F_EventScript_SetTheClock::
+	setvar VAR_UNUSED_0x4083, 0
+	lockall
+	msgbox BrendansHouse_2F_SetTheClock, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, BrendansHouse_2F_Movement_SetTheClock
+	waitmovement 0
+	releaseall
+	setvar VAR_LITTLEROOT_INTRO_STATE, 7
+	setvar VAR_LITTLEROOT_TOWN_STATE, 1
+	setvar VAR_LITTLEROOT_HOUSES_STATE_MAY, 2
+	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 2
+	setvar VAR_LITTLEROOT_RIVAL_STATE, 3
+	end
+
 LittlerootTown_BrendansHouse_2F_OnWarp:
 	map_script_2 VAR_SECRET_BASE_INITIALIZED, 0, LittlerootTown_BrendansHouse_2F_EventScript_CheckInitDecor
 	.2byte 0
@@ -271,6 +286,15 @@ PlayersHouse_2F_EventScript_Notebook::
 PlayersHouse_2F_EventScript_GameCube::
 	msgbox PlayersHouse_2F_Text_ItsAGameCube, MSGBOX_SIGN
 	end
+
+BrendansHouse_2F_Movement_SetTheClock:
+	face_down
+	walk_down
+	step_end
+
+BrendansHouse_2F_SetTheClock:
+	.string "I had better check the time\p"
+	.string "before I head out...$"
 
 PlayersHouse_2F_Text_ClockIsStopped:
 	.string "The clock is stopped…\p"
