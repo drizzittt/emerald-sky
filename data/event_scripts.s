@@ -1065,3 +1065,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Route135/scripts.inc"
 
 	.include "data/maps/OldaleRuins/scripts.inc"
+
+	.include "data/maps/DevonLaboratory/scripts.inc"
+
+	.include "data/maps/DevonLaboratory_2F/scripts.inc"

@@ -181,6 +181,8 @@
 #define MAP_RUSTBORO_CITY_FLAT2_2F          (14 | (11 << 8))
 #define MAP_RUSTBORO_CITY_FLAT2_3F          (15 | (11 << 8))
 #define MAP_RUSTBORO_CITY_HOUSE3            (16 | (11 << 8))
+#define MAP_DEVON_LABORATORY                (17 | (11 << 8))
+#define MAP_DEVON_LABORATORY_2F             (18 | (11 << 8))
 
 // gMapGroup_IndoorFortree
 #define MAP_FORTREE_CITY_HOUSE1            (0 | (12 << 8))

@@ -19,6 +19,70 @@ const u8 gItemEffect_Awakening[6] = {
     [3] = ITEM3_SLEEP,
 };
 
+const u8 gItemEffect_RazorClaw[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_RazorFang[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_KingsRock[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_MetalCoat[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_Protector[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_DragonScale[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_Electirizer[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_Magmarizer[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_DubiousDisc[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_ReaperCloth[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_DeepSeaTooth[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_DeepSeaScale[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_Upgrade[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_PrismScale[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_Sachet[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_WhippedDream[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
 const u8 gItemEffect_ParalyzeHeal[6] = {
     [3] = ITEM3_PARALYSIS,
 };
@@ -576,4 +640,20 @@ const u8 *const gItemEffectTable[ITEMS_COUNT] =
     [ITEM_GREPA_BERRY]        = gItemEffect_GrepaBerry,
     [ITEM_TAMATO_BERRY]       = gItemEffect_TamatoBerry,
     [LAST_BERRY_INDEX]        = NULL,
+    [ITEM_RAZOR_CLAW]         = gItemEffect_RazorClaw,
+    [ITEM_RAZOR_FANG]         = gItemEffect_RazorFang,
+    [ITEM_KINGS_ROCK]         = gItemEffect_KingsRock,
+    [ITEM_METAL_COAT]         = gItemEffect_MetalCoat,
+    [ITEM_PROTECTOR]          = gItemEffect_Protector,
+    [ITEM_DRAGON_SCALE]       = gItemEffect_DragonScale,
+    [ITEM_MAGMARIZER]         = gItemEffect_Magmarizer,
+    [ITEM_ELECTIRIZER]        = gItemEffect_Electirizer,
+    [ITEM_DUBIOUS_DISC]       = gItemEffect_DubiousDisc,
+    [ITEM_REAPER_CLOTH]       = gItemEffect_ReaperCloth,
+    [ITEM_DEEP_SEA_TOOTH]     = gItemEffect_DeepSeaTooth,
+    [ITEM_DEEP_SEA_SCALE]     = gItemEffect_DeepSeaScale,
+    [ITEM_UPGRADE]            = gItemEffect_Upgrade,
+    [ITEM_PRISM_SCALE]        = gItemEffect_PrismScale,
+    [ITEM_SACHET]             = gItemEffect_Sachet,
+    [ITEM_WHIPPED_DREAM]      = gItemEffect_WhippedDream,
 };

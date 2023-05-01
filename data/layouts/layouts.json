@@ -4440,6 +4440,26 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/OldaleRuins/border.bin",
       "blockdata_filepath": "data/layouts/OldaleRuins/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEVON_LABORATORY",
+      "name": "DevonLaboratory_Layout",
+      "width": 14,
+      "height": 8,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/DevonLaboratory/border.bin",
+      "blockdata_filepath": "data/layouts/DevonLaboratory/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEVON_LABORATORY_2F",
+      "name": "DevonLaboratory_2F_Layout",
+      "width": 14,
+      "height": 8,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/DevonLaboratory_2F/border.bin",
+      "blockdata_filepath": "data/layouts/DevonLaboratory_2F/map.bin"
     }
   ]
 }
