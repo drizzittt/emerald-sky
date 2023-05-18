@@ -6083,6 +6083,30 @@ const struct Item gItems[] =
         .flingPower = 10,
     },
 
+    [ITEM_PACKAGE] =
+    {
+        .name = _("Package"),
+        .itemId = ITEM_PACKAGE,
+        .price = 0,
+        .description = sPackageDesc,
+        .importance = 1,
+        .registrability = FALSE,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+    },   
+
+    [ITEM_KEYSTONE] =
+    {
+        .name = _("Keystone"),
+        .itemId = ITEM_KEYSTONE,
+        .price = 0,
+        .description = sKeystoneDesc,
+        .importance = 1,
+        .registrability = FALSE,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+    },  
+
     [ITEM_EXP_SHARE] =
     {
         .name = _("EXP. SHARE"),

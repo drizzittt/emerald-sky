@@ -3907,3 +3907,12 @@ static const u8 sLustrousGlobeDesc[] = _(
     "A large, glowing gem\n"
     "that lets Palkia\n"
     "change form.");
+
+static const u8 sPackageDesc[] = _(
+    "A package for Rival,\n"
+    "given to me by the Professor.");
+
+static const u8 sKeystoneDesc[] = _(
+    "An oddly shaped stone\n"
+    "that doesn't appear to be\n"
+    "useful.");

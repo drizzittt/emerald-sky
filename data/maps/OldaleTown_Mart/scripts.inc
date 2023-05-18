@@ -36,6 +36,7 @@ OldaleTown_Mart_Pokemart_Expanded:
 	.2byte ITEM_PARALYZE_HEAL
 	.2byte ITEM_AWAKENING
 	.2byte ITEM_RAZOR_CLAW
+	.2byte ITEM_RAZOR_FANG
 	.2byte ITEM_NONE
 	release
 	end

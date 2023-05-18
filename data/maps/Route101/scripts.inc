@@ -20,179 +20,23 @@ Route101_EventScript_HideMapNamePopup::
 	end
 
 Route101_EventScript_StartBirchRescue::
-	lockall
-	playbgm MUS_HELP, TRUE
-	msgbox Route101_Text_HelpMe, MSGBOX_DEFAULT
-	closemessage
-	setobjectxy LOCALID_BIRCH, 0, 15
-	setobjectxy LOCALID_ZIGZAGOON, 0, 16
-	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_EnterScene
-	applymovement LOCALID_BIRCH, Route101_Movement_BirchRunAway1
-	applymovement LOCALID_ZIGZAGOON, Route101_Movement_ZigzagoonChase1
-	waitmovement 0
-	applymovement LOCALID_ZIGZAGOON, Route101_Movement_ZigzagoonChaseInCircles
-	applymovement LOCALID_BIRCH, Route101_Movement_BirchRunInCircles
-	waitmovement 0
-	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	applymovement LOCALID_ZIGZAGOON, Route101_Movement_ZigzagoonFaceBirch
-	applymovement LOCALID_BIRCH, Route101_Movement_BirchFaceZigzagoon
-	waitmovement 0
-	msgbox Route101_Text_PleaseHelp, MSGBOX_DEFAULT
-	closemessage
 	setvar VAR_ROUTE101_STATE, 2
-	releaseall
 	end
 
-Route101_EventScript_PreventExitSouth::
-	lockall
-	msgbox Route101_Text_DontLeaveMe, MSGBOX_DEFAULT
-	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_PreventExitSouth
-	waitmovement 0
-	releaseall
-	end
+@Route101_EventScript_PreventExitSouth::
 
-Route101_EventScript_PreventExitWest::
-	lockall
-	msgbox Route101_Text_DontLeaveMe, MSGBOX_DEFAULT
-	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_PreventExitWest
-	waitmovement 0
-	releaseall
-	end
+@Route101_EventScript_PreventExitWest::
 
-Route101_EventScript_PreventExitNorth::
-	lockall
-	msgbox Route101_Text_DontLeaveMe, MSGBOX_DEFAULT
-	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_PreventExitNorth
-	waitmovement 0
-	releaseall
-	end
+@Route101_EventScript_PreventExitNorth::
+@	msgbox Route101_Text_DontLeaveMe, MSGBOX_DEFAULT
 
-Route101_Movement_PreventExitSouth:
-	walk_up
-	step_end
+@Route101_Movement_PreventExitSouth:
 
-Route101_Movement_PreventExitWest:
-	walk_right
-	step_end
-
-Route101_Movement_PreventExitNorth:
-	walk_down
-	step_end
-
-Route101_Movement_ZigzagoonChaseInCircles:
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_down
-	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_up
-	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_down
-	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_up
-	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_down
-	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	step_end
-
-Route101_Movement_ZigzagoonChase1:
-	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_up
-	step_end
 
 @ Leftover data? This command is unused.
 	step_end
 
-Route101_Movement_ZigzagoonFaceBirch:
-	walk_in_place_fast_left
-	walk_in_place_fast_left
-	walk_in_place_fast_left
-	walk_in_place_fast_left
-	step_end
-
-Route101_Movement_EnterScene:
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_in_place_faster_left
-	step_end
-
-Route101_Movement_BirchRunInCircles:
-	walk_fast_up
-	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_down
-	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_up
-	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_down
-	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_up
-	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_down
-	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	step_end
-
-Route101_Movement_BirchRunAway1:
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_up
-	walk_fast_up
-	step_end
-
 @ Leftover data? This command is unused.
-	step_end
-
-Route101_Movement_BirchFaceZigzagoon:
-	walk_in_place_fast_right
-	walk_in_place_fast_right
-	walk_in_place_fast_right
-	walk_in_place_fast_right
 	step_end
 
 Route101_Movement_Unused1:
@@ -230,7 +74,6 @@ Route101_EventScript_BirchsBag::
 	waitmovement 0
 	special ChooseStarter
 	waitstate
-	applymovement LOCALID_BIRCH, Route101_Movement_BirchApproachPlayer
 	waitmovement 0
 	msgbox Route101_Text_YouSavedMe, MSGBOX_DEFAULT
 	special HealPlayerParty
@@ -264,10 +107,6 @@ Route101_EventScript_AquaGrunt1::
 	waitmovement 0
 	release
 	end
-
-Route101_Movement_BirchApproachPlayer:
-	walk_right
-	step_end
 
 Route101_Text_HelpMe:
 	.string "H-help me!$"
