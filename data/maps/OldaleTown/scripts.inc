@@ -1,6 +1,5 @@
 .set LOCALID_MART_EMPLOYEE, 2
-.set LOCALID_FOOTPRINTS_MAN, 3
-.set LOCALID_RIVAL, 4
+.set LOCALID_RIVAL, 3
 
 OldaleTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, OldaleTown_OnTransition
@@ -9,7 +8,7 @@ OldaleTown_MapScripts::
 OldaleTown_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	setflag FLAG_VISITED_OLDALE_TOWN
-	call_if_unset FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_BlockWestEntrance
+	@call_if_unset FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_BlockWestEntrance
 	call_if_unset FLAG_RECEIVED_POTION_OLDALE, OldaleTown_EventScript_MoveMartEmployee
 	call_if_set FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_SetOldaleState
 	end
@@ -19,10 +18,10 @@ OldaleTown_EventScript_SetOldaleState::
 	setvar VAR_OLDALE_TOWN_STATE, 1
 	return
 
-OldaleTown_EventScript_BlockWestEntrance::
-	setobjectxyperm LOCALID_FOOTPRINTS_MAN, 1, 11
-	setobjectmovementtype LOCALID_FOOTPRINTS_MAN, MOVEMENT_TYPE_FACE_LEFT
-	return
+@OldaleTown_EventScript_BlockWestEntrance::
+@	setobjectxyperm LOCALID_FOOTPRINTS_MAN, 1, 11
+@	setobjectmovementtype LOCALID_FOOTPRINTS_MAN, MOVEMENT_TYPE_FACE_LEFT
+@	return
 
 OldaleTown_EventScript_MoveMartEmployee::
 	setobjectxyperm LOCALID_MART_EMPLOYEE, 13, 14
@@ -191,138 +190,248 @@ OldaleTown_Movement_Unknown2:
 	walk_up
 	step_end
 
-OldaleTown_EventScript_FootprintsMan::
-	lock
-	faceplayer
-	goto_if_set FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_NotBlockingPath
-	msgbox OldaleTown_Text_DiscoveredFootprints, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_FOOTPRINTS_MAN, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	release
-	end
-
-OldaleTown_EventScript_BlockedPath::
-	lockall
-	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_Movement_PlayerStepBack
-	applymovement LOCALID_FOOTPRINTS_MAN, OldaleTown_Movement_BackUp
-	waitmovement 0
-	msgbox OldaleTown_Text_WaitDontComeInHere, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_FOOTPRINTS_MAN, OldaleTown_Movement_ReturnToOriginalPosition
-	waitmovement 0
-	releaseall
-	end
-
-OldaleTown_EventScript_NotBlockingPath::
-	msgbox OldaleTown_Text_FinishedSketchingFootprints, MSGBOX_DEFAULT
-	release
-	end
-
 OldaleTown_EventScript_Rival::
 	lockall
-	applymovement LOCALID_RIVAL, Common_Movement_FacePlayer
+	addobject LOCALID_RIVAL
+	playbgm MUS_ENCOUNTER_MAY, TRUE
+	applymovement LOCALID_RIVAL, Step_Rival_intoScene_Movement_Oldale
 	waitmovement 0
-	setvar VAR_0x8009, 0
-	goto OldaleTown_EventScript_ShowRivalMessage
+	applymovement LOCALID_RIVAL, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_RIVAL, Common_Movement_Delay48
+	waitmovement 0
+	call_if_eq VAR_0x8009, 1, OldaleTown_EventScript_RivalApproachPlayer1
+	call_if_eq VAR_0x8009, 2, OldaleTown_EventScript_RivalApproachPlayer2
+	call_if_eq VAR_0x8009, 3, OldaleTown_EventScript_RivalApproachPlayer3
+	call_if_eq VAR_0x8009, 4, OldaleTown_EventScript_RivalApproachPlayer4
+	msgbox Rival_Challenge1, MSGBOX_DEFAULT
+	closemessage
+	switch VAR_STARTER_MON
+	case 0, Oldale_EventScript_StartMayBattleTreecko
+	case 1, Oldale_EventScript_StartMayBattleTorchic
+	case 2, Oldale_EventScript_StartMayBattleMudkip
 	end
 
 OldaleTown_EventScript_RivalTrigger1::
 	lockall
-	applymovement LOCALID_RIVAL, OldaleTown_Movement_RivalApproachPlayer1
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
 	setvar VAR_0x8009, 1
-	goto OldaleTown_EventScript_ShowRivalMessage
-	end
+	goto OldaleTown_EventScript_Rival
 
 OldaleTown_EventScript_RivalTrigger2::
 	lockall
-	applymovement LOCALID_RIVAL, OldaleTown_Movement_RivalApproachPlayer2
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	setvar VAR_0x8009, 1
-	goto OldaleTown_EventScript_ShowRivalMessage
-	end
+	setvar VAR_0x8009, 2
+	goto OldaleTown_EventScript_Rival
 
 OldaleTown_EventScript_RivalTrigger3::
 	lockall
+	setvar VAR_0x8009, 3
+	goto OldaleTown_EventScript_Rival
+
+OldaleTown_EventScript_RivalTrigger4::
+	lockall
+	setvar VAR_0x8009, 4
+	goto OldaleTown_EventScript_Rival
+
+OldaleTown_EventScript_RivalApproachPlayer1::
+	applymovement LOCALID_RIVAL, OldaleTown_Movement_RivalApproachPlayer1
+	waitmovement 0
+	return
+
+OldaleTown_EventScript_RivalApproachPlayer2::
+	applymovement LOCALID_RIVAL, OldaleTown_Movement_RivalApproachPlayer2
+	waitmovement 0
+	return
+
+OldaleTown_EventScript_RivalApproachPlayer3::
 	applymovement LOCALID_RIVAL, OldaleTown_Movement_RivalApproachPlayer3
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	return
+
+OldaleTown_EventScript_RivalApproachPlayer4::
+	applymovement LOCALID_RIVAL, OldaleTown_Movement_RivalApproachPlayer4
 	waitmovement 0
-	setvar VAR_0x8009, 1
-	goto OldaleTown_EventScript_ShowRivalMessage
+	return
+
+Rival_Challenge1:
+	.string "Hi, {PLAYER}!\n"
+	.string "My mom finally gave you a pokemon!?\p"
+	.string "That means we have to battle!$"
+
+Oldale_EventScript_StartMayBattleTreecko::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TREECKO, Oldale_Text_MayDefeated
+	goto Oldale_EventScript_AfterMayBattle
 	end
 
-OldaleTown_EventScript_ShowRivalMessage::
-	checkplayergender
-	goto_if_eq VAR_RESULT, MALE, OldaleTown_EventScript_ShowMayMessage
-	goto_if_eq VAR_RESULT, FEMALE, OldaleTown_EventScript_ShowBrendanMessage
+Oldale_EventScript_StartMayBattleTorchic::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TORCHIC, Oldale_Text_MayDefeated
+	goto Oldale_EventScript_AfterMayBattle
 	end
 
-OldaleTown_EventScript_ShowMayMessage::
-	msgbox OldaleTown_Text_MayLetsGoBack, MSGBOX_DEFAULT
-	goto OldaleTown_EventScript_RivalFinish
+Oldale_EventScript_StartMayBattleMudkip::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_MUDKIP, Oldale_Text_MayDefeated
+	goto Oldale_EventScript_AfterMayBattle
 	end
 
-OldaleTown_EventScript_ShowBrendanMessage::
-	msgbox OldaleTown_Text_BrendanLetsGoBack, MSGBOX_DEFAULT
-	goto OldaleTown_EventScript_RivalFinish
+Oldale_EventScript_StartBrendanBattleTreecko::
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TREECKO, Oldale_Text_BrendanDefeated
+	goto Oldale_EventScript_AfterBrendanBattle
 	end
 
-OldaleTown_EventScript_RivalFinish::
+Oldale_EventScript_StartBrendanBattleTorchic::
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TORCHIC, Oldale_Text_BrendanDefeated
+	goto Oldale_EventScript_AfterBrendanBattle
+	end
+
+Oldale_EventScript_StartBrendanBattleMudkip::
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_MUDKIP, Oldale_Text_BrendanDefeated
+	goto Oldale_EventScript_AfterBrendanBattle
+	end
+
+Oldale_EventScript_AfterMayBattle::
+	msgbox Oldale_Text_MayTimeToHeadBack, MSGBOX_DEFAULT
+	goto Oldale_EventScript_RivalExit
+	end
+
+Oldale_EventScript_AfterBrendanBattle::
+	msgbox Oldale_Text_BrendanTimeToHeadBack, MSGBOX_DEFAULT
 	closemessage
-	call_if_eq VAR_0x8009, 0, OldaleTown_EventScript_DoExitMovement1
-	call_if_eq VAR_0x8009, 1, OldaleTown_EventScript_DoExitMovement2
-	applymovement LOCALID_RIVAL, OldaleTown_Movement_RivalExit
+	goto Oldale_EventScript_RivalExit
+	end
+
+Oldale_EventScript_RivalExit::
+	call_if_eq VAR_0x8009, 1, OldaleTown_EventScript_RivalExit1
+	call_if_eq VAR_0x8009, 2, OldaleTown_EventScript_RivalExit2
+	call_if_eq VAR_0x8009, 3, OldaleTown_EventScript_RivalExit3
+	call_if_eq VAR_0x8009, 4, OldaleTown_EventScript_RivalExit4
+	end
+
+OldaleTown_EventScript_RivalExit1::
+	applymovement LOCALID_RIVAL, RivalExit_Oldale1
 	waitmovement 0
-	removeobject LOCALID_RIVAL
-	setvar VAR_OLDALE_RIVAL_STATE, 2
-	setflag FLAG_HIDE_OLDALE_TOWN_RIVAL
+	goto Oldale_EventScript_RivalEnd
 	releaseall
 	end
 
-OldaleTown_EventScript_DoExitMovement1::
-	goto_if_ne VAR_FACING, DIR_SOUTH, OldaleTown_EventScript_DoExitMovement2
-	applymovement LOCALID_RIVAL, OldaleTown_Movement_RivalExit
+OldaleTown_EventScript_RivalExit2::
+	applymovement LOCALID_RIVAL, RivalExit_Oldale2
 	waitmovement 0
-	return
+	goto Oldale_EventScript_RivalEnd
+	releaseall
+	end
 
-OldaleTown_EventScript_DoExitMovement2::
-	applymovement OBJ_EVENT_ID_PLAYER, OldaleTown_Movement_WatchRivalExit
-	applymovement LOCALID_RIVAL, OldaleTown_Movement_RivalExit
+OldaleTown_EventScript_RivalExit3::
+	applymovement LOCALID_RIVAL, RivalExit_Oldale3
 	waitmovement 0
-	return
+	goto Oldale_EventScript_RivalEnd
+	end
+
+OldaleTown_EventScript_RivalExit4::
+	applymovement LOCALID_RIVAL, RivalExit_Oldale4
+	waitmovement 0
+	goto Oldale_EventScript_RivalEnd
+	releaseall
+	end
+
+Oldale_EventScript_RivalEnd::
+	removeobject LOCALID_RIVAL
+	setvar VAR_BIRCH_LAB_STATE, 4
+	setflag FLAG_DEFEATED_RIVAL_ROUTE103
+	setvar VAR_OLDALE_RIVAL_STATE, 1
+	setflag FLAG_HIDE_OLDALE_TOWN_RIVAL
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	releaseall
+	end
+
+Oldale_Text_MayDefeated:
+	.string "Wow! That's great!\n"
+	.string "{PLAYER}{KUN}, you're pretty good!$"
+
+Oldale_Text_BrendanDefeated:
+	.string "Wow! That's great!\n"
+	.string "{PLAYER}{KUN}, you're pretty good!$"
+
+Oldale_Text_MayTimeToHeadBack:
+	.string "Wow, you're really good!\n"
+	.string "I didn't expect that since this is your\p"
+	.string "first pokemon. I'll be sure to tell my mom.\n"
+	.string "I'd better head back though. Mom said\p"
+	.string "she had something for me to do. Bye!$"
+
+Oldale_Text_BrendanTimeToHeadBack:
+	.string "Wow, you're really good!\n"
+	.string "I didn't expect that since this is your\p"
+	.string "first pokemon. I'll be sure to tell my mom.\n"
+	.string "I'd better head back though. Mom said\p"
+	.string "she had something for me to do. Bye!$"
+
+Step_Rival_intoScene_Movement_Oldale:
+	walk_down
+	walk_down
+	step_end
 
 OldaleTown_Movement_RivalApproachPlayer1:
+	walk_down
 	walk_left
-	walk_left
+	walk_down
 	step_end
 
 OldaleTown_Movement_RivalApproachPlayer2:
-	walk_left
+	walk_down
+	walk_down
 	step_end
 
 OldaleTown_Movement_RivalApproachPlayer3:
-	face_left
-	step_end
-
-OldaleTown_Movement_RivalExit:
 	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
+	walk_right
 	walk_down
 	step_end
 
-OldaleTown_Movement_WatchRivalExit:
-	delay_8
-	delay_4
-	walk_in_place_faster_down
+OldaleTown_Movement_RivalApproachPlayer4:
+	walk_down
+	walk_right
+	walk_right
+	walk_down
+	step_end
+
+RivalExit_Oldale1:
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+RivalExit_Oldale2:
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+RivalExit_Oldale3:
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+RivalExit_Oldale4:
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	step_end
 
 OldaleTown_Movement_PlayerStepBack:
@@ -364,36 +473,6 @@ OldaleTown_Text_PotionExplanation:
 	.string "A POTION can be used anytime, so it's\n"
 	.string "even more useful than a POKéMON CENTER\l"
 	.string "in certain situations.$"
-
-OldaleTown_Text_WaitDontComeInHere:
-	.string "Aaaaah! Wait!\n"
-	.string "Please don't come in here.\p"
-	.string "I just discovered the footprints of\n"
-	.string "a rare POKéMON!\p"
-	.string "Wait until I finish sketching\n"
-	.string "them, okay?$"
-
-OldaleTown_Text_DiscoveredFootprints:
-	.string "I just discovered the footprints of\n"
-	.string "a rare POKéMON!\p"
-	.string "Wait until I finish sketching\n"
-	.string "them, okay?$"
-
-OldaleTown_Text_FinishedSketchingFootprints:
-	.string "I finished sketching the footprints of\n"
-	.string "a rare POKéMON.\p"
-	.string "But it turns out they were only my\n"
-	.string "own footprints…$"
-
-OldaleTown_Text_MayLetsGoBack:
-	.string "MAY: {PLAYER}{KUN}!\n"
-	.string "Over here!\l"
-	.string "Let's hurry home!$"
-
-OldaleTown_Text_BrendanLetsGoBack:
-	.string "BRENDAN: I'm heading back to my dad's\n"
-	.string "LAB now.\l"
-	.string "{PLAYER}, you should hustle back, too.$"
 
 OldaleTown_Text_TownSign:
 	.string "OLDALE TOWN\n"
