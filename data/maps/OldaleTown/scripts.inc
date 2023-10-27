@@ -288,15 +288,34 @@ Oldale_EventScript_StartBrendanBattleMudkip::
 	end
 
 Oldale_EventScript_AfterMayBattle::
-	msgbox Oldale_Text_MayTimeToHeadBack, MSGBOX_DEFAULT
+	msgbox Oldale_Text_MayReallyGood, MSGBOX_DEFAULT
+	closemessage
+	giveitem ITEM_POKE_BALL, 10
+	call_if_eq VAR_RESULT, FALSE, Oldale_EventScript_MayNoRoomForPokeBalls
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	msgbox Oldale_Text_MayTimetoHeadBack, MSGBOX_DEFAULT
 	goto Oldale_EventScript_RivalExit
 	end
 
 Oldale_EventScript_AfterBrendanBattle::
-	msgbox Oldale_Text_BrendanTimeToHeadBack, MSGBOX_DEFAULT
+	msgbox Oldale_Text_BrendanReallyGood, MSGBOX_DEFAULT
 	closemessage
+	giveitem ITEM_POKE_BALL, 10
+	call_if_eq VAR_RESULT, FALSE, Oldale_EventScript_BrendanNoRoomForPokeBalls
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	msgbox Oldale_Text_BrendanTimetoHeadBack, MSGBOX_DEFAULT
 	goto Oldale_EventScript_RivalExit
 	end
+
+Oldale_EventScript_MayNoRoomForPokeBalls::
+	msgbox Oldale_Text_OhYourBagsFull, MSGBOX_DEFAULT
+	return
+
+Oldale_EventScript_BrendanNoRoomForPokeBalls::
+	msgbox Oldale_Text_HeyYourBagsFull, MSGBOX_DEFAULT
+	return
 
 Oldale_EventScript_RivalExit::
 	call_if_eq VAR_0x8009, 1, OldaleTown_EventScript_RivalExit1
@@ -344,26 +363,40 @@ Oldale_EventScript_RivalEnd::
 	end
 
 Oldale_Text_MayDefeated:
-	.string "Wow! That's great!\n"
-	.string "{PLAYER}{KUN}, you're pretty good!$"
+	.string "Wow! That’s great!\n"
+	.string "{PLAYER}{KUN}, you’re pretty good!$"
 
 Oldale_Text_BrendanDefeated:
-	.string "Wow! That's great!\n"
-	.string "{PLAYER}{KUN}, you're pretty good!$"
+	.string "Wow! That’s great!\n"
+	.string "{PLAYER}{KUN}, you’re pretty good!$"
 
-Oldale_Text_MayTimeToHeadBack:
-	.string "Wow, you're really good!\n"
-	.string "I didn't expect that since this is your\p"
-	.string "first pokemon. I'll be sure to tell my mom.\n"
-	.string "I'd better head back though. Mom said\p"
+Oldale_Text_MayReallyGood:
+	.string "Wow, you’re really good!\n"
+	.string "I didn’t expect that since this is your\p"
+	.string "first pokemon. I’ll be sure to tell my mom.\n"
+	.string "I’m excited to see what you do with more\p"
+	.string "Pokemon! Here, take these!$"
+
+Oldale_Text_MayTimetoHeadBack:
+	.string "I’d better head back though. Mom said\p"
 	.string "she had something for me to do. Bye!$"
 
-Oldale_Text_BrendanTimeToHeadBack:
-	.string "Wow, you're really good!\n"
-	.string "I didn't expect that since this is your\p"
-	.string "first pokemon. I'll be sure to tell my mom.\n"
-	.string "I'd better head back though. Mom said\p"
+Oldale_Text_BrendanReallyGood:
+	.string "Wow, you’re really good!\n"
+	.string "I didn’t expect that since this is your\p"
+	.string "first pokemon. I’ll be sure to tell my mom.\n"
+	.string "I’m excited to see what you do with more\p"
+	.string "Pokemon! Here, take these!$"
+
+Oldale_Text_BrendanTimetoHeadBack:
+	.string "I’d better head back though. Mom said\p"
 	.string "she had something for me to do. Bye!$"
+
+Oldale_Text_OhYourBagsFull:
+	.string "Oh? Your Bag’s full.$"
+
+Oldale_Text_HeyYourBagsFull:
+	.string "Hey! Your Bag’s full.$"
 
 Step_Rival_intoScene_Movement_Oldale:
 	walk_down
@@ -453,7 +486,7 @@ OldaleTown_Movement_ReturnToOriginalPosition:
 	step_end
 
 OldaleTown_Text_SavingMyProgress:
-	.string "I want to take a rest, so I'm saving my\n"
+	.string "I want to take a rest, so I’m saving my\n"
 	.string "progress.$"
 
 OldaleTown_Text_IWorkAtPokemonMart:
@@ -466,15 +499,14 @@ OldaleTown_Text_ThisIsAPokemonMart:
 	.string "Just look for our blue roof.\p"
 	.string "We sell a variety of goods including\n"
 	.string "POKé BALLS for catching POKéMON.\p"
-	.string "Here, I'd like you to have this as\n"
+	.string "Here, I’d like you to have this as\n"
 	.string "a promotional item.$"
 
 OldaleTown_Text_PotionExplanation:
-	.string "A POTION can be used anytime, so it's\n"
-	.string "even more useful than a POKéMON CENTER\l"
+	.string "A POTION can be used anytime, so it’s\n"
+	.string "even more useful than a Pokémon Center\l"
 	.string "in certain situations.$"
 
 OldaleTown_Text_TownSign:
-	.string "OLDALE TOWN\n"
-	.string "“Where things start off scarce.”$"
-
+	.string "Oldale Town\n"
+	.string "“Where things start off scarce!”$"

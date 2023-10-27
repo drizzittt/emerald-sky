@@ -1,4 +1,7 @@
 .set LOCALID_DEVON_EMPLOYEE, 2
+.set LOCALID_PROF_ALDEN, 3
+.set LOCALID_ROXANNE, 4
+.set LOCALID_MAXIE, 1
 
 RustboroCity_DevonCorp_3F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, RustboroCity_DevonCorp_3F_OnTransition
@@ -20,7 +23,7 @@ RustboroCity_DevonCorp_3F_OnWarp:
 	.2byte 0
 
 RustboroCity_DevonCorp_3F_EventScript_PlayerFaceEast::
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
 	end
 
 RustboroCity_DevonCorp_3F_OnFrame:
@@ -29,56 +32,59 @@ RustboroCity_DevonCorp_3F_OnFrame:
 
 RustboroCity_DevonCorp_3F_EventScript_MeetPresident::
 	lockall
-	msgbox RustboroCity_DevonCorp_3F_Text_ThisIs3rdFloorWaitHere, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_DEVON_EMPLOYEE, RustboroCity_DevonCorp_3F_Movement_EmployeeWalkOffscreen
-	waitmovement 0
-	delay 80
-	applymovement LOCALID_DEVON_EMPLOYEE, RustboroCity_DevonCorp_3F_Movement_EmployeeReturnToPlayer
-	waitmovement 0
-	msgbox RustboroCity_DevonCorp_3F_Text_WordWithPresidentComeWithMe, MSGBOX_DEFAULT
+	msgbox RustboroCity_DevonCorp_3F_Text_ToldComing, MSGBOX_DEFAULT
 	closemessage
 	playbgm MUS_FOLLOW_ME, FALSE
 	applymovement LOCALID_DEVON_EMPLOYEE, RustboroCity_DevonCorp_3F_Movement_LeadPlayerToPresident
 	applymovement OBJ_EVENT_ID_PLAYER, RustboroCity_DevonCorp_3F_Movement_PlayerFollowToPresident
 	waitmovement 0
-	msgbox RustboroCity_DevonCorp_3F_Text_PleaseGoAhead, MSGBOX_DEFAULT
+	msgbox RustboroCity_DevonCord_3F_Text_HeresPlayer, MSGBOX_DEFAULT
 	closemessage
 	fadedefaultbgm
-	applymovement LOCALID_DEVON_EMPLOYEE, RustboroCity_DevonCorp_3F_Movement_EmployeeFaceDesk
+	applymovement LOCALID_DEVON_EMPLOYEE, RustboroCity_DevonCorp_3F_Movement_EmployeeWalkAway
+	waitmovement 0
+	setobjectxyperm LOCALID_DEVON_EMPLOYEE, 3, 2
 	applymovement OBJ_EVENT_ID_PLAYER, RustboroCity_DevonCorp_3F_Movement_PlayerApproachDesk
 	waitmovement 0
-	msgbox RustboroCity_DevonCorp_3F_Text_MrStoneIHaveFavor, MSGBOX_DEFAULT
-	giveitem ITEM_LETTER
-	msgbox RustboroCity_DevonCorp_3F_Text_MrStoneWantYouToHaveThis, MSGBOX_DEFAULT
-	playfanfare MUS_OBTAIN_ITEM
-	message RustboroCity_DevonCorp_3F_Text_ReceivedPokenav
-	waitfanfare
-	setflag FLAG_SYS_POKENAV_GET
-	setflag FLAG_RECEIVED_POKENAV
-	setflag FLAG_HIDE_RUSTBORO_CITY_POKEMON_SCHOOL_SCOTT
-	msgbox RustboroCity_DevonCorp_3F_Text_MrStoneExplainPokenavRestUp, MSGBOX_DEFAULT
+	turnobject LOCALID_PROF_ALDEN, DIR_NORTH
+	msgbox RustboroCity_DevonCorp_3F_Text_AldenGreets1, MSGBOX_DEFAULT
 	closemessage
-	call Common_EventScript_OutOfCenterPartyHeal
-	msgbox RustboroCity_DevonCorp_3F_Text_MrStoneGoWithCautionAndCare, MSGBOX_DEFAULT
-	setflag FLAG_HIDE_ROUTE_116_WANDAS_BOYFRIEND
-	clearflag FLAG_HIDE_RUSTURF_TUNNEL_WANDAS_BOYFRIEND
-	clearflag FLAG_HIDE_RUSTURF_TUNNEL_WANDA
-	clearflag FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY
-	clearflag FLAG_HIDE_BRINEYS_HOUSE_PEEKO
+	applymovement LOCALID_MAXIE, Devon_3F_Move_MaxieGreets
+	waitmovement 16
+	msgbox RustboroCity_DevonCorp_3F_Text_AldenGreets2, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_ROXANNE, Devon_3F_Move_RoxanneGreets
+	waitmovement 16
+	msgbox DevonCorp_3F_Text_AldenReceive, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_0x8004, ITEM_PACKAGE
+	call Common_EventScript_PlayerHandedOverTheItem
+	applymovement LOCALID_PROF_ALDEN, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox DevonCorp_3F_Text_AldenExplain, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_ROXANNE, RustboroCity_DevonCorp_3F_move_RoxannetoPlayer
+	waitmovement 0
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	msgbox RustboroCity_DevonCorp_3F_Text_RoxanneGym, MSGBOX_DEFAULT
+	closemessage
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	msgbox RustboroCity_DevonCorp_3F_Text_Maxie, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_ROXANNE, RustboroCity_DevonCorp_3F_move_RoxanneLeave
+	waitmovement 0
+	removeobject LOCALID_ROXANNE
+	setflag FLAG_HIDE_ROXANNE_DEVON
+	msgbox RustboroCity_DevonCorP_3F_Text_MaxieGo, MSGBOX_DEFAULT
+	closemessage
+	@@LEFT OFF MODDING HERE
 	setvar VAR_BRINEY_LOCATION, 1
 	clearflag FLAG_HIDE_RUSTBORO_CITY_RIVAL
 	setvar VAR_DEVON_CORP_3F_STATE, 1
 	setvar VAR_RUSTBORO_CITY_STATE, 6
+	setflag FLAG_HIDE_RUSTBOROGYM_BLOCKER
 	releaseall
 	end
-
-RustboroCity_DevonCorp_3F_Movement_Unused:
-	walk_up
-	walk_up
-	walk_up
-	walk_in_place_faster_left
-	step_end
 
 RustboroCity_DevonCorp_3F_Movement_LeadPlayerToPresident:
 	walk_right
@@ -97,33 +103,6 @@ RustboroCity_DevonCorp_3F_Movement_LeadPlayerToPresident:
 	walk_in_place_faster_left
 	step_end
 
-RustboroCity_DevonCorp_3F_Movement_EmployeeFaceDesk:
-	delay_16
-	walk_in_place_faster_down
-	step_end
-
-RustboroCity_DevonCorp_3F_Movement_EmployeeWalkOffscreen:
-	walk_right
-	walk_right
-	walk_right
-	walk_down
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	step_end
-
-RustboroCity_DevonCorp_3F_Movement_EmployeeReturnToPlayer:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_up
-	walk_left
-	walk_left
-	walk_left
-	step_end
-
 RustboroCity_DevonCorp_3F_Movement_PlayerFollowToPresident:
 	walk_right
 	walk_right
@@ -140,12 +119,59 @@ RustboroCity_DevonCorp_3F_Movement_PlayerFollowToPresident:
 	walk_right
 	step_end
 
+RustboroCity_DevonCorp_3F_Movement_EmployeeWalkAway:
+	walk_up
+	walk_left
+	walk_left
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	@walk_up
+	@walk_left
+	@walk_left
+	@face_right
+	step_end
+
 RustboroCity_DevonCorp_3F_Movement_PlayerApproachDesk:
 	delay_16
 	delay_16
 	walk_down
 	walk_down
-	walk_in_place_faster_right
+	step_end
+
+Devon_3F_Move_MaxieGreets:
+	walk_in_place_faster_left
+	step_end
+
+Devon_3F_Move_RoxanneGreets:
+	walk_in_place_faster_up
+	step_end
+
+RustboroCity_DevonCorp_3F_move_RoxannetoPlayer:
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	face_right
+	step_end
+
+RustboroCity_DevonCorp_3F_move_RoxanneLeave:
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	step_end
 
 RustboroCity_DevonCorp_3F_EventScript_MrStone::
@@ -184,7 +210,7 @@ RustboroCity_DevonCorp_3F_EventScript_Employee::
 	lock
 	faceplayer
 	goto_if_set FLAG_RECEIVED_REPEAT_BALL, RustboroCity_DevonCorp_3F_EventScript_EmployeeBalls
-	msgbox RustboroCity_DevonCorp_3F_Text_VisitCaptSternShipyard, MSGBOX_DEFAULT
+	msgbox RustboroCity_DevonCorp_3F_Text_GoodLuck, MSGBOX_DEFAULT
 	release
 	end
 
@@ -197,20 +223,76 @@ RustboroCity_DevonCorp_3F_EventScript_RareRocksDisplay::
 	msgbox RustboroCity_DevonCorp_3F_Text_RareRocksDisplay, MSGBOX_SIGN
 	end
 
-RustboroCity_DevonCorp_3F_Text_MrStoneIHaveFavor:
-	.string "I'm MR. STONE, the PRESIDENT of\n"
-	.string "the DEVON CORPORATION.\p"
-	.string "I'd just got word about you!\p"
-	.string "You saved our staff not just once,\n"
-	.string "but twice!\p"
-	.string "I have a favor to ask of an amazing\n"
-	.string "person like you.\p"
-	.string "I understand that you're delivering\n"
-	.string "a package to SLATEPORT's SHIPYARD.\p"
-	.string "Well, on the way, could you stop off in\n"
-	.string "DEWFORD TOWN?\p"
-	.string "I was hoping that you'd deliver a\n"
-	.string "LETTER to STEVEN in DEWFORD.$"
+RustboroCity_DevonCorp_3F_Text_AldenGreets1:
+	.string "Prof Alden: So you're {PLAYER}. May\n"
+	.string "told me about you. Welcome to Devon\p"
+	.string "Corp! This is President Maxie, of Devon$"
+
+RustboroCity_DevonCorp_3F_Text_AldenGreets2:
+	.string "and this is Roxanne, the local Gym Leader.$"
+
+DevonCorp_3F_Text_AldenReceive:
+	.string "...\p"
+	.string "Ah yes, the package from May!$"
+
+DevonCorp_3F_Text_AldenExplain:
+	.string "Prof Alden: ..! How did she find..?!\n"
+	.string "Maxie, Roxanne, this is exactly\p"
+	.string "what we were looking for!\p"
+	.string "Roxanne: Wow, that's good timing!\p"
+	.string "Maxie: So we can actually find\n"
+	.string" them?\p"
+	.string "Prof Alden: Yes, and I think we have\n"
+	.string "found someone to help us!\p"
+	.string "{PLAYER}, as you know, twenty years\n"
+	.string "ago Groudon and Kyogre\p"
+	.string "went on a rampage and were only\n"
+	.string "calmed by Rayquaza, with the help of\p"
+	.string "the champion. Well, Rayquaza\n"
+	.string "has disappeared. We fear Kyogre and\p"
+	.string "Groudon will awaken and nothing will be\n"
+	.string "able to stop them. Their past rampaging\p"
+	.string "has greatly affected Hoenn, destroying\n"
+	.string "sites, uncovering lost caves and areas,\p"
+	.string "making new ones, and, of course,\n"
+	.string "attracting new Pokémon.\p"
+	.string "Maxie: Some of these are good things,\n"
+	.string "but there was a lot of destruction.\p"
+	.string "We believe we have uncovered the site\n"
+	.string "of the legendary Oldale Ruins.\p"
+	.string "Roxanne: Prof Alden believes these ruins\n"
+	.string "hold secrets important to finding\p"
+	.string "Rayquaza and preventing more\n"
+	.string "destruction.\p"
+	.string "Prof Alden: I know they do! We just need\n"
+	.string "the keys to unlock them! What you have\p"
+	.string "just delivered is a map of sorts to\n"
+	.string "track them down, and the first aligns\p"
+	.string "with my suspicions! It's nearby, in\n"
+	.string "the recently uncovered area of\p"
+	.string "Rusturf Tunnel!\p"
+	.string "{PLAYER}, will you help us retrieve this\n"
+	.string "key?\p"
+	.string "...\p"
+	.string "Prof Alden: Excellent! Thank you!$"
+
+RustboroCity_DevonCorp_3F_Text_RoxanneGym:
+	.string "Roxanne: I would recommend you take on\n"
+	.string "my Gym first to make sure your\p"
+	.string "Pokémon are strong enough. There's no\n"
+	.string "telling what you'll run into out there.\p"
+	.string "Speaking of which, I need to head back.\n"
+	.string "I've been out a while now and don't want\p"
+	.string "to miss challengers.$"
+	
+RustboroCity_DevonCorp_3F_Text_Maxie:
+	.string "Maxie: That's an excellent idea!\n"
+	.string "Thank you for being here Roxanne.$"
+
+RustboroCity_DevonCorP_3F_Text_MaxieGo:
+	.string "{PLAYER}, please return here once you\n"
+	.string "have whatever is in that tunnel, and\p"
+	.string "good luck out there.$"
 
 RustboroCity_DevonCorp_3F_Text_MrStoneWantYouToHaveThis:
 	.string "MR. STONE: Now, you should know that\n"
@@ -242,7 +324,7 @@ RustboroCity_DevonCorp_3F_Text_MrStoneGoWithCautionAndCare:
 	.string "go with caution and care!$"
 
 RustboroCity_DevonCorp_3F_Text_CountingOnYou:
-	.string "MR. STONE: I'm counting on you!$"
+	.string "Maxie: We're counting on you!$"
 
 RustboroCity_DevonCorp_3F_Text_ThankYouForDeliveringLetter:
 	.string "MR. STONE: You delivered my LETTER?\n"
@@ -267,35 +349,24 @@ RustboroCity_DevonCorp_3F_Text_NotFamiliarWithTrends:
 	.string "But do young people all want to be\n"
 	.string "TRAINERS in the POKéMON LEAGUE?$"
 
-RustboroCity_DevonCorp_3F_Text_ThisIs3rdFloorWaitHere:
-	.string "This is the DEVON CORPORATION's\n"
+RustboroCity_DevonCorp_3F_Text_ToldComing:
+	.string "This is the Devon Corporation's\n"
 	.string "third floor.\p"
-	.string "Our PRESIDENT's OFFICE is on\n"
-	.string "this floor.\p"
-	.string "Anyway, I can't tell you how much I'm\n"
-	.string "grateful for what you've done.\p"
-	.string "Um… By the way, that parcel\n"
-	.string "you got back for us…\p"
-	.string "Could I get you to deliver that to\n"
-	.string "the SHIPYARD in SLATEPORT?\p"
-	.string "It would be awful if those robbers\n"
-	.string "tried to take it again.\p"
-	.string "Uh… Hehehe, so, uh, could I count\n"
-	.string "on you to do that for me?\p"
-	.string "Oh, that's right.\n"
-	.string "Could you wait here a second?$"
+	.string "Do you have an appointment..?\n"
+	.string "...\p"
+	.string "Ah, {PLAYER}, they buzzed up and said\n"
+	.string "you were coming. Right this way.$"
 
 RustboroCity_DevonCorp_3F_Text_WordWithPresidentComeWithMe:
 	.string "Our PRESIDENT would like to have\n"
 	.string "a word with you.\p"
 	.string "Please come with me.$"
 
-RustboroCity_DevonCorp_3F_Text_PleaseGoAhead:
-	.string "Please, go ahead.$"
+RustboroCity_DevonCord_3F_Text_HeresPlayer:
+	.string "Here is {PLAYER}, from Prof. May.$"
 
-RustboroCity_DevonCorp_3F_Text_VisitCaptSternShipyard:
-	.string "If you visit the SHIPYARD in SLATEPORT,\n"
-	.string "you should go see CAPT. STERN.$"
+RustboroCity_DevonCorp_3F_Text_GoodLuck:
+	.string "Good luck out there.$"
 
 RustboroCity_DevonCorp_3F_Text_RepeatAndTimerHugelyPopular:
 	.string "DEVON's new products, the REPEAT BALL\n"

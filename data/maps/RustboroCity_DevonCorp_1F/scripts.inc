@@ -5,7 +5,7 @@ RustboroCity_DevonCorp_1F_MapScripts::
 	.byte 0
 
 RustboroCity_DevonCorp_1F_OnTransition:
-	call_if_unset FLAG_RETURNED_DEVON_GOODS, RustboroCity_DevonCorp_1F_EventScript_BlockStairs
+	call_if_unset FLAG_RETURNED_MAYS_PACKAGE, RustboroCity_DevonCorp_1F_EventScript_BlockStairs
 	end
 
 RustboroCity_DevonCorp_1F_EventScript_BlockStairs::
@@ -16,8 +16,7 @@ RustboroCity_DevonCorp_1F_EventScript_BlockStairs::
 RustboroCity_DevonCorp_1F_EventScript_Employee::
 	lock
 	faceplayer
-	goto_if_set FLAG_RETURNED_DEVON_GOODS, RustboroCity_DevonCorp_1F_EventScript_GoodsRecovered
-	goto_if_set FLAG_DEVON_GOODS_STOLEN, RustboroCity_DevonCorp_1F_EventScript_RobberWasntBright
+	@goto_if_set FLAG_DEVON_GOODS_STOLEN, RustboroCity_DevonCorp_1F_EventScript_RobberWasntBright
 	msgbox RustboroCity_DevonCorp_1F_Text_ThoseShoesAreOurProduct, MSGBOX_DEFAULT
 	release
 	end
@@ -27,17 +26,27 @@ RustboroCity_DevonCorp_1F_EventScript_RobberWasntBright::
 	release
 	end
 
-RustboroCity_DevonCorp_1F_EventScript_GoodsRecovered::
-	msgbox RustboroCity_DevonCorp_1F_Text_SoundsLikeStolenGoodsRecovered, MSGBOX_DEFAULT
+RustboroCity_DevonCorp_1F_EventScript_NoVisitors::
+	msgbox RustboroCity_DevonCorp_1F_Text_NoVisitors, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_RETURNED_MAYS_PACKAGE
+	applymovement LOCALID_STAIR_GUARD, Move_Guard_From_Stairs
+	waitmovement 0
+	release
+	end
+
+RustboroCity_DevonCorp_1F_EventScript_PackageReceived::
+	msgbox RustboroCity_DevonCorp_1F_Text_SecurityClearance, MSGBOX_DEFAULT
 	release
 	end
 
 RustboroCity_DevonCorp_1F_EventScript_StairGuard::
 	lock
 	faceplayer
-	goto_if_set FLAG_RETURNED_DEVON_GOODS, RustboroCity_DevonCorp_1F_EventScript_AlwaysWelcome
-	goto_if_set FLAG_RECOVERED_DEVON_GOODS, RustboroCity_DevonCorp_1F_EventScript_GotRobbed
-	goto_if_set FLAG_DEVON_GOODS_STOLEN, RustboroCity_DevonCorp_1F_EventScript_GotRobbed
+	goto_if_unset FLAG_RETURNED_MAYS_PACKAGE, RustboroCity_DevonCorp_1F_EventScript_NoVisitors
+	goto_if_set FLAG_RETURNED_MAYS_PACKAGE, RustboroCity_DevonCorp_1F_EventScript_PackageReceived
+	@goto_if_set FLAG_RECOVERED_DEVON_GOODS, RustboroCity_DevonCorp_1F_EventScript_GotRobbed
+	@goto_if_set FLAG_DEVON_GOODS_STOLEN, RustboroCity_DevonCorp_1F_EventScript_GotRobbed
 	msgbox RustboroCity_DevonCorp_1F_Text_OnlyAuthorizedPeopleEnter, MSGBOX_DEFAULT
 	release
 	end
@@ -55,7 +64,8 @@ RustboroCity_DevonCorp_1F_EventScript_GotRobbed::
 RustboroCity_DevonCorp_1F_EventScript_Greeter::
 	lock
 	faceplayer
-	goto_if_set FLAG_RETURNED_DEVON_GOODS, RustboroCity_DevonCorp_1F_EventScript_WelcomeToDevonCorp
+	goto_if_unset FLAG_RETURNED_MAYS_PACKAGE, RustboroCity_DevonCorp_1F_EventScript_NoVisitors
+	goto_if_set FLAG_RETURNED_MAYS_PACKAGE, RustboroCity_DevonCorp_1F_EventScript_PackageReceived
 	goto_if_set FLAG_RECOVERED_DEVON_GOODS, RustboroCity_DevonCorp_1F_EventScript_StaffGotRobbed
 	goto_if_set FLAG_DEVON_GOODS_STOLEN, RustboroCity_DevonCorp_1F_EventScript_StaffGotRobbed
 	msgbox RustboroCity_DevonCorp_1F_Text_WelcomeToDevonCorp, MSGBOX_DEFAULT
@@ -86,6 +96,13 @@ RustboroCity_DevonCorp_1F_Text_WelcomeToDevonCorp:
 	.string "We're proud producers of items and\n"
 	.string "medicine that enhance your life.$"
 
+RustboroCity_DevonCorp_1F_Text_NoVisitors:
+	.string "We aren't currently receiving visitors.\n"
+	.string "...\p"
+	.string "Oh, I see! The package Prof Alden\n"
+	.string "was expecting. Well you had better\p"
+	.string "on up to the third floor.$"
+
 RustboroCity_DevonCorp_1F_Text_StaffGotRobbed:
 	.string "One of our research staff stupidly\n"
 	.string "got robbed of an important parcel.$"
@@ -103,9 +120,9 @@ RustboroCity_DevonCorp_1F_Text_RobberWasntVeryBright:
 	.string "In my estimation, that robber must not\n"
 	.string "have been very bright.$"
 
-RustboroCity_DevonCorp_1F_Text_SoundsLikeStolenGoodsRecovered:
-	.string "It sounds like they've recovered\n"
-	.string "the ripped-off DEVON GOODS.$"
+RustboroCity_DevonCorp_1F_Text_SecurityClearance:
+	.string "Hello. You have been given\n"
+	.string "security clearance to access all floors.$"
 
 RustboroCity_DevonCorp_1F_Text_OnlyAuthorizedPeopleEnter:
 	.string "I'm sorry, only authorized people\n"
@@ -144,3 +161,9 @@ RustboroCity_DevonCorp_1F_Text_ProductDisplay:
 	.string "tools for POKéMON TRAINERS, including\l"
 	.string "POKé BALLS and POKéNAV systems.”$"
 
+Move_Guard_From_Stairs:
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	step_end

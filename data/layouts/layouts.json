@@ -4460,6 +4460,16 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/DevonLaboratory_2F/border.bin",
       "blockdata_filepath": "data/layouts/DevonLaboratory_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_RUSTURF",
+      "name": "NewRusturf_Layout",
+      "width": 40,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_RusturfTunnel",
+      "border_filepath": "data/layouts/NewRusturf/border.bin",
+      "blockdata_filepath": "data/layouts/NewRusturf/map.bin"
     }
   ]
 }

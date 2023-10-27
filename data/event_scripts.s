@@ -777,8 +777,8 @@ EventScript_HideMrBriney::
 	return
 
 RusturfTunnel_EventScript_SetRusturfTunnelOpen::
-	removeobject LOCALID_WANDAS_BF
-	removeobject LOCALID_WANDA
+@@	removeobject LOCALID_WANDAS_BF
+@@	removeobject LOCALID_WANDA
 	clearflag FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WANDAS_BOYFRIEND
 	clearflag FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WANDA
 	setvar VAR_RUSTURF_TUNNEL_STATE, 6
@@ -1069,3 +1069,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/DevonLaboratory/scripts.inc"
 
 	.include "data/maps/DevonLaboratory_2F/scripts.inc"
+
+	.include "data/maps/NewRusturf/scripts.inc"

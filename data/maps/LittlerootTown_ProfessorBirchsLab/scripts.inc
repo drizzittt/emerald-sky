@@ -46,13 +46,17 @@ LittlerootTown_ProffessorBirchsLab_EventScript_CheckMayStatus::
 LittlerootTown_ProfessorBirchsLab_EventScript_MaysMission::
 	lockall
 	faceplayer
+	checkplayergender
+	call_if_eq VAR_RESULT, MALE, ProfLab_EventScript_SetIntroFlagsMale
+	call_if_eq VAR_RESULT, FEMALE, ProfLab_EventScript_SetIntroFlagsMale
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_ProfAlden, MSGBOX_DEFAULT
 	closemessage
 	playfanfare MUS_OBTAIN_ITEM
-	giveitem ITEM_KEYSTONE
+	giveitem ITEM_PACKAGE
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_ChooseAStarter, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_UNUSED_0x408B, 1
+	setvar VAR_MOM_START_STATE, 2
 	releaseall
 	end
 
@@ -116,7 +120,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GoodLuck::
 
 
 NewProfessor_EventScript_Mudkip_1::
-	givemon SPECIES_MUDKIP, 10
+	givemon SPECIES_MUDKIP, 5
 	hidemonpic
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewProfessor_EventScript_Mudkip_Text_1
@@ -133,7 +137,7 @@ NewProfessor_EventScript_Mudkip_1::
 	return
 
 NewProfessor_EventScript_Torchic_1::
-	givemon SPECIES_TORCHIC, 10
+	givemon SPECIES_TORCHIC, 5
 	hidemonpic
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewProfessor_EventScript_Torchic_Text_1
@@ -150,7 +154,7 @@ NewProfessor_EventScript_Torchic_1::
 	return
 
 NewProfessor_EventScript_Treecko_1::
-	givemon SPECIES_TREECKO, 10
+	givemon SPECIES_TREECKO, 5
 	hidemonpic
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewProfessor_EventScript_Treecko_Text_1
@@ -184,8 +188,7 @@ Move_Player_to_May_1::
 	applymovement OBJ_EVENT_ID_PLAYER, MovetoMay_1
 	waitmovement 0
 	lockall
-	msgbox Good_Luck_Text, MSGBOX_DEFAULT
-	closemessage
+	goto May_Give_Pokedex
 	releaseall
 	return
 
@@ -193,8 +196,7 @@ Move_Player_to_May_2::
 	applymovement OBJ_EVENT_ID_PLAYER, MovetoMay_2
 	waitmovement 0
 	lockall
-	msgbox Good_Luck_Text, MSGBOX_DEFAULT
-	closemessage
+	goto May_Give_Pokedex
 	releaseall
 	return
 
@@ -202,9 +204,22 @@ Move_Player_to_May_3::
 	applymovement OBJ_EVENT_ID_PLAYER, MovetoMay_3
 	waitmovement 0
 	lockall
+	goto May_Give_Pokedex
+	releaseall
+	return
+
+May_Give_Pokedex::
+	msgbox May_Give_Pokedex_Text, MSGBOX_DEFAULT
+	closemessage
+	playfanfare MUS_OBTAIN_ITEM
+	message LittlerootTown_ProfessorBirchsLab_Text_ReceivedPokedex
+	waitfanfare
+	setflag FLAG_SYS_POKEDEX_GET
+	special SetUnlockedPokedexFlags
+	special EnableNationalPokedex
+	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
 	msgbox Good_Luck_Text, MSGBOX_DEFAULT
 	closemessage
-	releaseall
 	return
 
 NicknamePartyMon::
@@ -274,8 +289,9 @@ LittlerootTown_ProfessorBirchsLab_Text_ProfAlden:
 	.string "I need you to deliver this\n"
 	.string "item to Professor Alden, an\p"
 	.string "old colleague of my Dad's and\n"
-	.string "a dear friend. He should be\p"
-	.string "in Rustboro City, working with Devon Corp.$"
+	.string "a dear friend. Last I heard he\p"
+	.string "was going to try to get funding from\n"
+	.string "Devon Corp in Rustboro City.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_ChooseAStarter:
 	.string "I know its dangerous\p"
@@ -318,9 +334,16 @@ LittlerootTown_ProfessorBirchsLab_Text_FindAlden:
 LittlerootTown_ProfessorBirchsLab_Text_DontBeGreedy:
 	.string "Don't be greedy.$"
 
-Good_Luck_Text:
+May_Give_Pokedex_Text:
 	.string "Excellent choice!\n"
-	.string "Take good care of them and\p"
+	.string "Last thing, here is your\p"
+	.string "Pokedex! I want you to catch\n"
+	.string "and record data on as many\p"
+	.string "Pokemon as you can while out!$"
+
+Good_Luck_Text:
+	.string "Take care of yourself\n"
+	.string "and your Pokemon.\p"
 	.string "Good luck!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_ChoooseStarter_1:
@@ -962,3 +985,13 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
 	.string "we meet. I'll be waiting!\p"
 	.string "… … … … … …\n"
 	.string "… … … … … Click!$"
+
+
+ProfLab_EventScript_SetIntroFlagsMale::
+	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F
+	return
+
+ProfLab_EventScript_SetIntroFlagsFemale::
+	setrespawn HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F
+	return
+	

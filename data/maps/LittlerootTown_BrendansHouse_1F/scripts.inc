@@ -23,6 +23,9 @@ LittlerootTown_BrendansHouse_1F_EventScript_PlayerEnterFirst::
 	setflag FLAG_ADDED_MATCH_CALL_TO_POKENAV
 	setflag FLAG_SYS_POKENAV_GET
 	setflag FLAG_RECEIVED_POKENAV
+	setflag FLAG_ENABLE_MOM_MATCH_CALL
+	applymovement LOCALID_MOM, Common_Movement_ExclamationMark
+	waitmovement 0
 	applymovement LOCALID_MOM, LittlerootTown_BrendansHouse_1F_Movement_MomApproach
 	waitmovement 0
 	msgbox PlayersHouse_1F_Text_MomGiveBag, MSGBOX_DEFAULT
@@ -35,8 +38,13 @@ LittlerootTown_BrendansHouse_1F_EventScript_PlayerEnterFirst::
 	msgbox PlayersHouse_1F_ExplainRunningShoes, MSGBOX_DEFAULT
 	closemessage
 	goto_if_eq VAR_MOM_START_STATE, 0, MoveMom_to_Table
+	setvar VAR_MOM_START_STATE, 1
 	releaseall
 	end
+
+@LittlerootTown_BrendansHouse_1F_EventScript_MomMoves1::
+@
+@	return
 
 LittlerootTown_BrendansHouse_1F_EventScript_PlayerEnterFirst_2::
 	lockall
@@ -48,6 +56,8 @@ LittlerootTown_BrendansHouse_1F_EventScript_PlayerEnterFirst_2::
 	setflag FLAG_ADDED_MATCH_CALL_TO_POKENAV
 	setflag FLAG_SYS_POKENAV_GET
 	setflag FLAG_RECEIVED_POKENAV
+	applymovement LOCALID_MOM, Common_Movement_ExclamationMark
+	waitmovement 0
 	applymovement LOCALID_MOM, LittlerootTown_BrendansHouse_1F_Movement_MomApproach_2
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
@@ -61,6 +71,7 @@ LittlerootTown_BrendansHouse_1F_EventScript_PlayerEnterFirst_2::
 	msgbox PlayersHouse_1F_ExplainRunningShoes, MSGBOX_DEFAULT
 	closemessage
 	goto_if_eq VAR_MOM_START_STATE, 0, MoveMom_to_Table_2
+	setvar VAR_MOM_START_STATE, 1
 	releaseall
 	end
 
@@ -74,6 +85,8 @@ LittlerootTown_BrendansHouse_1F_EventScript_PlayerEnterFirst_2::
 	setflag FLAG_ADDED_MATCH_CALL_TO_POKENAV
 	setflag FLAG_SYS_POKENAV_GET
 	setflag FLAG_RECEIVED_POKENAV
+	applymovement LOCALID_MOM, Common_Movement_ExclamationMark
+	waitmovement 0
 	applymovement LOCALID_MOM, LittlerootTown_BrendansHouse_1F_Movement_MomApproach_3
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
@@ -87,6 +100,7 @@ LittlerootTown_BrendansHouse_1F_EventScript_PlayerEnterFirst_2::
 	msgbox PlayersHouse_1F_ExplainRunningShoes, MSGBOX_DEFAULT
 	closemessage
 	goto_if_eq VAR_MOM_START_STATE, 0, MoveMom_to_Table_3
+	setvar VAR_MOM_START_STATE, 1
 	releaseall
 	end
 
@@ -296,13 +310,24 @@ PlayersHouse_1F_Text_TakeCareHoney:
 	.string "MOM: Take care, honey!$"
 
 PlayersHouse_1F_Text_GotDadsBadgeHeresSomethingFromMom:
-	.string "MOM: Oh? Did DAD give you that BADGE?\p"
+	.string "Mom: Oh? Did DAD give you that BADGE?\p"
 	.string "Then here's something from your MOM!$"
 
 PlayersHouse_1F_Text_DontPushYourselfTooHard:
 	.string "Don't push yourself too hard, dear.\n"
 	.string "You can always come home.\p"
 	.string "Go for it, honey!$"
+
+PlayerHouse_1F_Text_GoSeeMay:
+	.string "You'd better and go see Professor\p"
+	.string "May. She seemed in a hurry.$"
+
+PlayersHouse_1F_Text_NewPokemon:
+	.string "Mom: The Prof gave you a Pokemon?\n"
+	.string "I supppose that means you're off on\p"
+	.string "an adventure. Remember you can always\n"
+	.string "come home. Now, you had better rest\p"
+	.string "before heading out.$"
 
 PlayersHouse_1F_Text_IsThatAPokenav:
 	.string "MOM: What is that, honey? A POKéNAV?\n"
