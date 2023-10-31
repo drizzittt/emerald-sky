@@ -163,7 +163,7 @@ LittlerootTown_EventScript_DangerousWithoutPokemon::
 	return
 
 LittlerootTown_EventScript_BlockedGrove::
-	setvar VAR_LITTLEROOT_TOWN_GROVE, 0
+	@setvar VAR_LITTLEROOT_TOWN_GROVE, 0
 	lockall
 	msgbox LittlerootTown_Text_BlockedGrove, MSGBOX_DEFAULT
 	closemessage

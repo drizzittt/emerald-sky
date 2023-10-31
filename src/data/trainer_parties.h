@@ -85,10 +85,10 @@ static const struct TrainerMon sParty_Gabrielle1[] = {
     }
 };
 
-static const struct TrainerMon sParty_GruntPetalburgWoods[] = {
+static const struct TrainerMon sParty_GruntNewRusturf1[] = {
     {
     .lvl = 9,
-    .species = SPECIES_POOCHYENA,
+    .species = SPECIES_DRIFLOON,
     }
 };
 
@@ -143,8 +143,12 @@ static const struct TrainerMon sParty_Declan[] = {
 
 static const struct TrainerMon sParty_GruntRusturfTunnel[] = {
     {
+    .lvl = 9,
+    .species = SPECIES_ZUBAT,
+    },
+    {
     .lvl = 11,
-    .species = SPECIES_POOCHYENA,
+    .species = SPECIES_MURKROW,
     }
 };
 

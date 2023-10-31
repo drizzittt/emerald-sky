@@ -3,7 +3,6 @@ OldaleTown_House2_MapScripts::
 
 OldaleTown_House2_EventScript_Woman::
 	msgbox OldaleTown_House2_Text_PokemonLevelUp, MSGBOX_NPC
-	setFlag FLAG_UNUSED_0x054
 	end
 
 OldaleTown_House2_EventScript_Man::

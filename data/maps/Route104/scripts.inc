@@ -423,6 +423,14 @@ Route104_EventScript_LandedInDewford::
 	releaseall
 	end
 
+@Route104_EventScript_Brawly::
+@
+@	end
+
+@Route104_EventScript_Brawly1::
+@	
+@	end
+
 Route104_Movement_SailToDewfordBeforeDadCalls:
 	walk_down
 	walk_down

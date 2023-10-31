@@ -1,6 +1,6 @@
 .set LOCALID_DEVON_EMPLOYEE, 2
-.set LOCALID_PROF_ALDEN, 3
-.set LOCALID_ROXANNE, 4
+.set LOCALID_PROF_ALDEN, 4
+.set LOCALID_ROXANNE, 3
 .set LOCALID_MAXIE, 1
 
 RustboroCity_DevonCorp_3F_MapScripts::
@@ -11,6 +11,7 @@ RustboroCity_DevonCorp_3F_MapScripts::
 
 RustboroCity_DevonCorp_3F_OnTransition:
 	call_if_eq VAR_DEVON_CORP_3F_STATE, 0, RustboroCity_DevonCorp_3F_EventScript_SetEmployeePos
+	call_if_eq VAR_DEVON_CORP_3F_STATE, 3, RustboroCity_DevonCorp_3F_EventScript_ReturnKey_Position
 	end
 
 RustboroCity_DevonCorp_3F_EventScript_SetEmployeePos::
@@ -38,7 +39,7 @@ RustboroCity_DevonCorp_3F_EventScript_MeetPresident::
 	applymovement LOCALID_DEVON_EMPLOYEE, RustboroCity_DevonCorp_3F_Movement_LeadPlayerToPresident
 	applymovement OBJ_EVENT_ID_PLAYER, RustboroCity_DevonCorp_3F_Movement_PlayerFollowToPresident
 	waitmovement 0
-	msgbox RustboroCity_DevonCord_3F_Text_HeresPlayer, MSGBOX_DEFAULT
+	msgbox RustboroCity_DevonCorp_3F_Text_HeresPlayer, MSGBOX_DEFAULT
 	closemessage
 	fadedefaultbgm
 	applymovement LOCALID_DEVON_EMPLOYEE, RustboroCity_DevonCorp_3F_Movement_EmployeeWalkAway
@@ -78,11 +79,43 @@ RustboroCity_DevonCorp_3F_EventScript_MeetPresident::
 	msgbox RustboroCity_DevonCorP_3F_Text_MaxieGo, MSGBOX_DEFAULT
 	closemessage
 	@@LEFT OFF MODDING HERE
-	setvar VAR_BRINEY_LOCATION, 1
 	clearflag FLAG_HIDE_RUSTBORO_CITY_RIVAL
 	setvar VAR_DEVON_CORP_3F_STATE, 1
-	setvar VAR_RUSTBORO_CITY_STATE, 6
 	setflag FLAG_HIDE_RUSTBOROGYM_BLOCKER
+	releaseall
+	end
+
+RustboroCity_DevonCorp_3F_EventScript_ReturnKey_Position::
+	setobjectxyperm LOCALID_PROF_ALDEN, 15, 7
+	setobjectmovementtype LOCALID_PROF_ALDEN, MOVEMENT_TYPE_FACE_UP
+	end
+
+RustboroCity_DevonCorp_3F_EventScript_Alden_Main::
+	goto_if_eq VAR_DEVON_CORP_3F_STATE, 1, RustboroCity_DevonCorp_3F_EventScript_GoodLuck
+	goto_if_eq VAR_DEVON_CORP_3F_STATE, 2, RustboroCity_DevonCorp_3F_EventScript_ReturnKey
+	goto_if_eq VAR_DEVON_CORP_3F_STATE, 3, RustboroCity_DevonCorp_3F_EventScript_GoodLuck
+	end
+
+RustboroCity_DevonCorp_3F_EventScript_ReturnKey::
+	lockall
+	faceplayer
+	msgbox RustboroCity_DevonCorp_3F_Text_AldenKey, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_0x8004, ITEM_KEYSTONE
+	call Common_EventScript_PlayerHandedOverTheItem
+	applymovement LOCALID_PROF_ALDEN, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox RustboroCity_DevonCorp_3F_Text_AldenKey_Cont, MSGBOX_DEFAULT
+	closemessage
+	msgbox RustboroCity_DevonCorp_3F_Text_MaxieKey, MSGBOX_DEFAULT
+	closemessage
+	msgbox RustboroCity_DevonCorp_3F_Text_AldenCont, MSGBOX_DEFAULT
+	closemessage
+	playfanfare MUS_OBTAIN_ITEM
+	giveitem ITEM_RARE_CANDY
+	msgbox RustboroCity_DevonCorp_3F_Text_AldenGiveReward, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_DEVON_CORP_3F_STATE, 3
 	releaseall
 	end
 
@@ -177,12 +210,17 @@ RustboroCity_DevonCorp_3F_move_RoxanneLeave:
 RustboroCity_DevonCorp_3F_EventScript_MrStone::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_EXP_SHARE, RustboroCity_DevonCorp_3F_EventScript_MrStoneAfterFavor
-	goto_if_set FLAG_DELIVERED_STEVEN_LETTER, RustboroCity_DevonCorp_3F_EventScript_GiveExpShare
+	goto_if_eq VAR_DEVON_CORP_3F_STATE, 3, RustboroCity_DevonCorp_3F_EventScript_GoodLuck
 	msgbox RustboroCity_DevonCorp_3F_Text_CountingOnYou, MSGBOX_DEFAULT
 	closemessage
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
+	release
+	end
+
+RustboroCity_DevonCorp_3F_EventScript_GoodLuck::
+	msgbox RustboroCity_DevonCorp_3F_Text_GoodLuck, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -362,7 +400,7 @@ RustboroCity_DevonCorp_3F_Text_WordWithPresidentComeWithMe:
 	.string "a word with you.\p"
 	.string "Please come with me.$"
 
-RustboroCity_DevonCord_3F_Text_HeresPlayer:
+RustboroCity_DevonCorp_3F_Text_HeresPlayer:
 	.string "Here is {PLAYER}, from Prof. May.$"
 
 RustboroCity_DevonCorp_3F_Text_GoodLuck:
@@ -377,3 +415,47 @@ RustboroCity_DevonCorp_3F_Text_RareRocksDisplay:
 	.string "It's a collection of rare rocks and\n"
 	.string "stones assembled by the PRESIDENT.$"
 
+RustboroCity_DevonCorp_3F_Text_AldenKey:
+	.string "Prof Alden: {PLAYER}! Were\n"
+	.string "you successful?!\p"
+	.string ".....$"
+
+RustboroCity_DevonCorp_3F_Text_AldenKey_Cont:
+	.string "Prof Alden: That's wonderful! I\n"
+	.string "can't believe it! We actually\p"
+	.string "have a Keystone! Maxie, this\n"
+	.string "proves I'm right!$"
+
+RustboroCity_DevonCorp_3F_Text_MaxieKey:
+	.string "Maxie: I appreciate your enthusiasm\n"
+	.string "Professor, but this hardly proves\p"
+	.string "everything you've been saying.\n"
+	.string "We still need the two other keys\n"
+	.string "and to locate the ruins themselves.$"
+
+RustboroCity_DevonCorp_3F_Text_AldenCont:
+	.string "Prof Alden: Yes, of course. I'm\n"
+	.string "close to the ruins though. If only\p"
+	.string "your short-tenured predecessor\n"
+	.string "hadn't stolen my research on his\p"
+	.string "way out! Steven could cost everyone\n"
+	.string "everything, the madman!\p"
+	.string "Anyways, {PLAYER}, thank you for\n"
+	.string "your help! I'm certain I'll have\p"
+	.string "more work for you in the future.\n"
+	.string "In the meantime, take this.$"
+
+RustboroCity_DevonCorp_3F_Text_AldenGiveReward:
+	.string "Prof Alden:\n"
+	.string "I highly recommend you carry\p"
+	.string "on with the gym challenge.\n"
+	.string "You seem to have great aptitude\p"
+	.string "as a Trainer, and I have a\n"
+	.string "feeling you'll need all the\p"
+	.string "strength you can get if these\n"
+	.string "Gale Force people you mentioned\p"
+	.string "are after the keys as well!\n"
+	.string "I believe Brawly in Dewford\p"
+	.string "is still the second leader.\n"
+	.string "I'll get ahold of you if anything\p"
+	.string "comes up. Good luck out there!$"
