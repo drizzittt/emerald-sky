@@ -120,7 +120,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GoodLuck::
 
 
 NewProfessor_EventScript_Mudkip_1::
-	givemon SPECIES_MUDKIP, 5
+	givemon SPECIES_MUDKIP, 10
 	hidemonpic
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewProfessor_EventScript_Mudkip_Text_1
@@ -137,7 +137,7 @@ NewProfessor_EventScript_Mudkip_1::
 	return
 
 NewProfessor_EventScript_Torchic_1::
-	givemon SPECIES_TORCHIC, 5
+	givemon SPECIES_TORCHIC, 10
 	hidemonpic
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewProfessor_EventScript_Torchic_Text_1
@@ -154,7 +154,7 @@ NewProfessor_EventScript_Torchic_1::
 	return
 
 NewProfessor_EventScript_Treecko_1::
-	givemon SPECIES_TREECKO, 5
+	givemon SPECIES_TREECKO, 10
 	hidemonpic
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox NewProfessor_EventScript_Treecko_Text_1
