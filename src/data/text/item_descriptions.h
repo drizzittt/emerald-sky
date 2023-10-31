@@ -3915,13 +3915,14 @@ static const u8 sLustrousGlobeDesc[] = _(
     "change form.");
 
 static const u8 sPackageDesc[] = _(
-    "A package for Rival,\n"
-    "given to me by the Professor.");
+    "A package given\n"
+    "to me by the\n"
+    "Professor.");
 
 static const u8 sKeystoneDesc[] = _(
-    "An oddly shaped stone\n"
-    "that doesn't appear to be\n"
-    "useful.");
+    "An oddly shaped\n"
+    "stone.");
+
 static const u8 sBerserkGene[] = _(
     "Sharply boosts\n"
     "Attack, but causes\n"

@@ -1703,14 +1703,6 @@
       "y": 4,
       "width": 1,
       "height": 1
-    },
-    {
-      "map_section": "MAPSEC_ROUTE_135",
-      "name": "Route 135",
-      "x": 5,
-      "y": 10,
-      "width": 1,
-      "height": 1
     }
   ]
 }

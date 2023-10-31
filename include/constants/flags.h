@@ -48,7 +48,7 @@
 #define FLAG_HIDE_ROXANNE_DEVON         0x23 // drizzitt
 #define FLAG_HIDE_RUSTBOROGYM_BLOCKER   0x24 // drizzitt
 #define FLAG_RETURNED_MAYS_PACKAGE    0x25 // Unused Flag
-#define FLAG_UNUSED_0x026    0x26 // Unused Flag
+#define FLAG_HIDE_NEWRUSTURF_KEYSTONE    0x26 // Unused Flag
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag
 #define FLAG_UNUSED_0x028    0x28 // Unused Flag
 #define FLAG_UNUSED_0x029    0x29 // Unused Flag
