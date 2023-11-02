@@ -1,5 +1,7 @@
 .set LOCALID_BRINEY, 11
 .set LOCALID_WANDAS_BF_OUTSIDE, 21
+.set LOCALID_PSYCHIC, 28
+.set LOCALID_DUSCLOPS, 27
 
 Route116_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route116_OnTransition
@@ -34,6 +36,20 @@ Route116_EventScript_WandasBoyfriend::
 	goto_if_set FLAG_DEVON_GOODS_STOLEN, Route116_EventScript_BoyfriendGruntInTunnel
 	msgbox Route116_Text_WantToDigTunnel, MSGBOX_DEFAULT
 	release
+	end
+
+Route116_EventScript_Rusturf_Blocked::
+	lockall
+	msgbox Route116_Text_ComeOnDusclops, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+Route116_EventScript_Rusturf_DusclopsSnore::
+	lockall
+	msgbox Route116_Text_DusclopsSnore, MSGBOX_DEFAULT
+	closemessage
+	releaseall
 	end
 
 Route116_EventScript_BoyfriendGruntLeftTunnel::
@@ -471,3 +487,11 @@ Route116_Text_TrainerTipsBagHasPockets:
 	.string "No TRAINER can afford to be without\n"
 	.string "a BAG of their own.$"
 
+Route116_Text_ComeOnDusclops:
+	.string "Come on Dusclops, we need\n"
+	.string "to stop blocking the tunnel!\p"
+	.string "You can nap when we get to\n"
+	.string "Verdanturf.$"
+
+Route116_Text_DusclopsSnore:
+	.string "...zzz...$"
