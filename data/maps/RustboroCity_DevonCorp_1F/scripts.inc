@@ -99,9 +99,13 @@ RustboroCity_DevonCorp_1F_Text_WelcomeToDevonCorp:
 RustboroCity_DevonCorp_1F_Text_NoVisitors:
 	.string "We aren't currently receiving visitors.\n"
 	.string "...\p"
-	.string "Oh, I see! The package Prof Alden\n"
-	.string "was expecting. Well you had better\p"
-	.string "on up to the third floor.$"
+	.string "I see. A package for Prof Alden…\n"
+	.string "I'll radio up... Bzzz... Sir,\p"
+	.string "there's a kid here saying he has\n"
+	.string "a package for the Professor...\p"
+	.string "bzzz... Yes sir, right away sir...\n"
+	.string "Your lucky day, head on up to the\p"
+	.string third floor. They're expecting you.$"
 
 RustboroCity_DevonCorp_1F_Text_StaffGotRobbed:
 	.string "One of our research staff stupidly\n"
@@ -121,8 +125,8 @@ RustboroCity_DevonCorp_1F_Text_RobberWasntVeryBright:
 	.string "have been very bright.$"
 
 RustboroCity_DevonCorp_1F_Text_SecurityClearance:
-	.string "Hello. You have been given\n"
-	.string "security clearance to access all floors.$"
+	.string "You have been given security\n"
+	.string "clearance to access all floors.$"
 
 RustboroCity_DevonCorp_1F_Text_OnlyAuthorizedPeopleEnter:
 	.string "I'm sorry, only authorized people\n"

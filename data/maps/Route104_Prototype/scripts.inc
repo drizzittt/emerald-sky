@@ -6,8 +6,8 @@ Footprints_EventScript::
 	end
 
 Footprints_Message:
-	.string "It turns out I have been finding\n"
-	.string "footprints of rare pokemon!\p"
+	.string "I have been finding footprints of\n"
+	.string "rare pokemon, I know it!\p"
 	.string "There were so many different ones I\n"
 	.string "decided to open up a museum for them!\l"
 	.string "Now everyone will finally believe me!$"

@@ -566,8 +566,17 @@ PetalburgCity_Gym_EventScript_UnlockRoomDoors::
 PetalburgCity_Gym_EventScript_GymGuide::
 	lock
 	faceplayer
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_EventScript_GuideDecline
 	goto_if_set FLAG_DEFEATED_PETALBURG_GYM, PetalburgCity_Gym_EventScript_GymGuidePostVictory
 	msgbox PetalburgCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
+	release
+	end
+
+PetalburgCity_EventScript_GuideDecline::
+	lock
+	faceplayer
+	msgbox PetalburgCity_Text_GuideDecline, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -597,6 +606,10 @@ PetalburgCity_Gym_EventScript_GymStatue::
 	msgbox PetalburgCity_Gym_Text_GymStatue, MSGBOX_DEFAULT
 	releaseall
 	end
+
+PetalburgCity_Text_GuideDecline:
+	.string "Sorry, we only accept challengers\n"
+	.string "With at least four badges already.$"
 
 PetalburgCity_Gym_Text_NormanIntro:
 	.string "DAD: Hm…\n"

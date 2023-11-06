@@ -180,12 +180,12 @@ PlayersHouse_2F_EventScript_GameCube::
 	end
 
 BrendansHouse_2F_Movement_SetTheClock:
-	face_down
-	walk_down
+	face_left
+	walk_left
 	step_end
 
 BrendansHouse_2F_SetTheClock:
-	.string "I had better check the time\p"
+	.string "I had better check the time\n"
 	.string "before I head out...$"
 
 PlayersHouse_2F_Text_ClockIsStopped:

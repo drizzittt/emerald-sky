@@ -181,9 +181,11 @@ RustboroCity_DevonCorp_3F_Movement_PlayerApproachDesk:
 
 Devon_3F_Move_MaxieGreets:
 	walk_in_place_faster_left
+	walk_in_place_faster_left
 	step_end
 
 Devon_3F_Move_RoxanneGreets:
+	walk_in_place_faster_up
 	walk_in_place_faster_up
 	step_end
 
@@ -264,14 +266,14 @@ RustboroCity_DevonCorp_3F_EventScript_RareRocksDisplay::
 RustboroCity_DevonCorp_3F_Text_AldenGreets1:
 	.string "Prof Alden: So you're {PLAYER}. May\n"
 	.string "told me about you. Welcome to Devon\p"
-	.string "Corp! This is President Maxie, of Devon$"
+	.string "Corp! This is Maxie, President of Devon$"
 
 RustboroCity_DevonCorp_3F_Text_AldenGreets2:
 	.string "and this is Roxanne, the local Gym Leader.$"
 
 DevonCorp_3F_Text_AldenReceive:
 	.string "...\p"
-	.string "Ah yes, the package from May!$"
+	.string "What's this about a package from May?$"
 
 DevonCorp_3F_Text_AldenExplain:
 	.string "Prof Alden: ..! How did she find..?!\n"

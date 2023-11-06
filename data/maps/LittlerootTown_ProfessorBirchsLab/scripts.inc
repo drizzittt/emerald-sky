@@ -44,7 +44,7 @@ LittlerootTown_ProffessorBirchsLab_EventScript_CheckMayStatus::
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_MaysMission::
-	lockall
+	lock
 	faceplayer
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, ProfLab_EventScript_SetIntroFlagsMale
@@ -57,23 +57,23 @@ LittlerootTown_ProfessorBirchsLab_EventScript_MaysMission::
 	closemessage
 	setvar VAR_UNUSED_0x408B, 1
 	setvar VAR_MOM_START_STATE, 2
-	releaseall
+	release
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_TakeYourTime::
-	lockall
+	lock
 	faceplayer
 	msgbox NewProfessor_NotChosen_Text
 	closemessage
-	releaseall
+	release
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_FindAlden::
-	lockall
+	lock
 	faceplayer
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_FindAlden
 	closemessage
-	releaseall
+	release
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_PokeballOne::
@@ -171,44 +171,48 @@ NewProfessor_EventScript_Treecko_1::
 	return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_TalkToProfessor::
-	lockall
+	lock
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_TalkToProfessor, MSGBOX_DEFAULT
 	closemessage
-	releaseall
+	release
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_DontBeGreedy::
-	lockall
+	lock
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_DontBeGreedy, MSGBOX_DEFAULT
 	closemessage
-	releaseall
+	release
 	return
 
 Move_Player_to_May_1::
 	applymovement OBJ_EVENT_ID_PLAYER, MovetoMay_1
 	waitmovement 0
-	lockall
+	faceplayer
+	lock
 	goto May_Give_Pokedex
-	releaseall
+	release
 	return
 
 Move_Player_to_May_2::
 	applymovement OBJ_EVENT_ID_PLAYER, MovetoMay_2
 	waitmovement 0
-	lockall
+	faceplayer
+	lock
 	goto May_Give_Pokedex
-	releaseall
+	release
 	return
 
 Move_Player_to_May_3::
 	applymovement OBJ_EVENT_ID_PLAYER, MovetoMay_3
 	waitmovement 0
-	lockall
+	faceplayer
+	lock
 	goto May_Give_Pokedex
-	releaseall
+	release
 	return
 
 May_Give_Pokedex::
+	faceplayer
 	msgbox May_Give_Pokedex_Text, MSGBOX_DEFAULT
 	closemessage
 	playfanfare MUS_OBTAIN_ITEM
