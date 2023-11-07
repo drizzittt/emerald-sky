@@ -105,7 +105,7 @@ RustboroCity_DevonCorp_1F_Text_NoVisitors:
 	.string "a package for the Professor...\p"
 	.string "bzzz... Yes sir, right away sir...\n"
 	.string "Your lucky day, head on up to the\p"
-	.string third floor. They're expecting you.$"
+	.string "third floor. They're expecting you.$"
 
 RustboroCity_DevonCorp_1F_Text_StaffGotRobbed:
 	.string "One of our research staff stupidly\n"

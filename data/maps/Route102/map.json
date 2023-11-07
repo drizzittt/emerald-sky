@@ -141,13 +141,43 @@
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Route102_EventScript_Allen",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 39,
+      "y": 10,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route102_EventScript_Rival",
+      "flag": "FLAG_HIDE_OLDALE_TOWN_RIVAL"
     }
   ],
   "warp_events": [
 
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 47,
+      "y": 11,
+      "elevation": 3,
+      "var": "VAR_OLDALE_RIVAL_STATE",
+      "var_value": "0",
+      "script": "Route102_EventScript_RivalTrigger2"
+    },
+    {
+      "type": "trigger",
+      "x": 47,
+      "y": 10,
+      "elevation": 3,
+      "var": "VAR_OLDALE_RIVAL_STATE",
+      "var_value": "0",
+      "script": "Route102_EventScript_RivalTrigger1"
+    }
   ],
   "bg_events": [
     {

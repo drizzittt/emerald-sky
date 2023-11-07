@@ -31,6 +31,7 @@ RustboroCity_Gym_EventScript_GiveRockTomb::
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_TM_ROCK_TOMB
 	msgbox RustboroCity_Gym_Text_ExplainRockTomb, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -188,8 +189,8 @@ RustboroCity_Gym_Text_RoxanneIntro:
 RustboroCity_Gym_Text_RoxanneDefeat:
 	.string "So…\n"
 	.string "I lost…\p"
-	.string "It seems that I still have much more\n"
-	.string "to learn…\p"
+	.string "It seems that even after all this\n"
+	.string "time I still have much more to learn…\p"
 	.string "I understand.\p"
 	.string "The Pokémon League's rules state\n"
 	.string "that trainers are to be given this\l"
@@ -216,7 +217,11 @@ RustboroCity_Gym_Text_ExplainRockTomb:
 	.string "If you use a TM, it instantly teaches\n"
 	.string "the move to a Pokémon.\p"
 	.string "A TM can be used infinitely,\n"
-	.string "so don't even think before you use it.$"
+	.string "so don't even think before you use it.\p"
+	.string "I know you're here mainly to help\n"
+	.string "Professor Alden, but I would recommend\p"
+	.string "challenging other Gyms as well. You'll\n"
+	.string "get stronger and learn a lot.$"
 
 RustboroCity_Gym_Text_RoxannePostBattle:
 	.string "I know you're here mainly to help\n"
