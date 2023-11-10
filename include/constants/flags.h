@@ -925,7 +925,7 @@
 #define FLAG_HIDE_RUSTURF_TUNNEL_AQUA_GRUNT                         0x36E
 #define FLAG_HIDE_RUSTURF_TUNNEL_BRINEY                             0x36F
 #define FLAG_HIDE_RUSTURF_TUNNEL_PEEKO                              0x370
-#define FLAG_HIDE_BRINEYS_HOUSE_PEEKO                               0x371
+#define FLAG_HIDE_BRINEYS_HOUSE_BRAWLY                               0x371
 #define FLAG_HIDE_SLATEPORT_CITY_TEAM_AQUA                          0x372
 #define FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS         0x373
 #define FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_2F_AQUA_GRUNT_1     0x374

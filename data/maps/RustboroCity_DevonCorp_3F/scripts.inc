@@ -116,6 +116,8 @@ RustboroCity_DevonCorp_3F_EventScript_ReturnKey::
 	msgbox RustboroCity_DevonCorp_3F_Text_AldenGiveReward, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_DEVON_CORP_3F_STATE, 3
+	setflag FLAG_HIDE_BRINEYS_HOUSE_BRAWLY
+	setvar VAR_BRINEY_HOUSE_STATE, 1
 	releaseall
 	end
 
