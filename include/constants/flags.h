@@ -47,13 +47,13 @@
 #define FLAG_HIDE_STARTER_BALL_THREE    0x22 // Unused Flag
 #define FLAG_HIDE_ROXANNE_DEVON         0x23 // drizzitt
 #define FLAG_HIDE_RUSTBOROGYM_BLOCKER   0x24 // drizzitt
-#define FLAG_RETURNED_MAYS_PACKAGE    0x25 // Unused Flag
-#define FLAG_HIDE_NEWRUSTURF_KEYSTONE    0x26 // Unused Flag
-#define FLAG_UNUSED_0x027    0x27 // Unused Flag
-#define FLAG_UNUSED_0x028    0x28 // Unused Flag
-#define FLAG_UNUSED_0x029    0x29 // Unused Flag
-#define FLAG_UNUSED_0x02A    0x2A // Unused Flag
-#define FLAG_UNUSED_0x02B    0x2B // Unused Flag
+#define FLAG_RETURNED_MAYS_PACKAGE      0x25 // Unused Flag
+#define FLAG_HIDE_NEWRUSTURF_KEYSTONE   0x26 // Unused Flag
+#define FLAG_HIDE_DEWFORD_GYM_GUIDE     0x27 // Unused Flag
+#define FLAG_HIDE_GYM_BRAWLY            0x28 // Unused Flag
+#define FLAG_UNUSED_0x029    0x29 // DEBUG NO ENCOUNTERS
+#define FLAG_UNUSED_0x02A    0x2A // DEBUG NO TRAINERS SEE
+#define FLAG_UNUSED_0x02B    0x2B // DEBUG NO COLLISION
 #define FLAG_UNUSED_0x02C    0x2C // Unused Flag
 #define FLAG_UNUSED_0x02D    0x2D // Unused Flag
 #define FLAG_UNUSED_0x02E    0x2E // Unused Flag

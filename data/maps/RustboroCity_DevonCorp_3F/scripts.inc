@@ -117,6 +117,8 @@ RustboroCity_DevonCorp_3F_EventScript_ReturnKey::
 	closemessage
 	setvar VAR_DEVON_CORP_3F_STATE, 3
 	setflag FLAG_HIDE_BRINEYS_HOUSE_BRAWLY
+	setflag FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY
+	clearflag FLAG_HIDE_ROUTE_104_MR_BRINEY
 	setvar VAR_BRINEY_HOUSE_STATE, 1
 	releaseall
 	end

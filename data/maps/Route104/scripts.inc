@@ -2,24 +2,62 @@
 @  These are labeled in DewfordTown/scripts.inc
 .set LOCALID_RIVAL, 34
 
+@.equ LOCALID_BOAT_R104, 7
+@.equ LOCALID_BRINEY_R104, 8
+
+@.equ LOCALID_BRINEY_DEWFORD, 2
+@.equ LOCALID_BOAT_DEWFORD, 4
+
 Route104_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route104_OnFrame
 	map_script MAP_SCRIPT_ON_TRANSITION, Route104_OnTransition
 	.byte 0
 
 Route104_OnFrame:
-	map_script_2 VAR_BOARD_BRINEY_BOAT_STATE, 1, Route104_EventScript_StartSailToDewford
+	@map_script_2 VAR_BOARD_BRINEY_BOAT_STATE, 1, Route104_EventScript_StartSailToDewford
 	.2byte 0
 
-Route104_EventScript_StartSailToDewford::
-	lockall
-	goto Route104_EventScript_SailToDewford
-	end
+@Route104_EventScript_StartSailToDewford::
+@	lockall
+@	goto Route104_EventScript_SailToDewford
+@	end
 
 Route104_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	call Route104_EventScript_TrySetRivalPos
 	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
+	end
+
+Route104_EventScript_SetSail::
+	message Route104_Text_SetSail
+	waitmessage
+	multichoicedefault 20, 8, MULTI_BRINEY_OFF_DEWFORD, 1, FALSE
+	switch VAR_RESULT
+	case 0, Route104_MrBrineysHouse_EventScript_SailToDewford
+	case 1, Route104_MrBrineysHouse_EventScript_DeclineSailing
+	case MULTI_B_PRESSED, Route104_MrBrineysHouse_EventScript_DeclineSailing
+	end
+
+Route104_MrBrineysHouse_EventScript_DeclineSailing::
+	msgbox Route104__Text_TellMeWhenYouWantToSail, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_MrBrineysHouse_EventScript_SailToDewford::
+	msgbox Route104_Text_SetSailForDewford, MSGBOX_DEFAULT
+	closemessage
+	call EventScript_BackupMrBrineyLocation
+	setvar VAR_BOARD_BRINEY_BOAT_STATE, 1
+	setobjectsubpriority LOCALID_BRINEY_R104, MAP_ROUTE104, 0
+	setobjectsubpriority OBJ_EVENT_ID_PLAYER, MAP_ROUTE104, 0
+	applymovement LOCALID_BRINEY_R104, Route104_Movement_BrineyBoardBoat
+	waitmovement 0
+	removeobject LOCALID_BRINEY_R104
+	applymovement OBJ_EVENT_ID_PLAYER, Route104_Movement_PlayerBoardBoat
+	waitmovement 0
+	hideobjectat OBJ_EVENT_ID_PLAYER, MAP_ROUTE104
+	call Common_EventScript_PlayBrineysBoatMusic
+	goto Route104_EventScript_SailToDewfordNoCall
 	end
 
 Route104_EventScript_ShowOrHideWhiteHerbFlorist::
@@ -346,19 +384,19 @@ Route104_EventScript_Girl2::
 	msgbox Route104_Text_ImNotATrainer, MSGBOX_NPC
 	end
 
-Route104_EventScript_SailToDewford::
-	setobjectsubpriority LOCALID_BRINEY_R104, MAP_ROUTE104, 0
-	setobjectsubpriority OBJ_EVENT_ID_PLAYER, MAP_ROUTE104, 0
-	applymovement LOCALID_BRINEY_R104, Route104_Movement_BrineyBoardBoat
-	waitmovement 0
-	removeobject LOCALID_BRINEY_R104
-	applymovement OBJ_EVENT_ID_PLAYER, Route104_Movement_PlayerBoardBoat
-	waitmovement 0
-	hideobjectat OBJ_EVENT_ID_PLAYER, MAP_ROUTE104
-	call Common_EventScript_PlayBrineysBoatMusic
-	goto_if_set FLAG_ENABLE_NORMAN_MATCH_CALL, Route104_EventScript_SailToDewfordNoCall
-	goto_if_unset FLAG_ENABLE_NORMAN_MATCH_CALL, Route104_EventScript_SailToDewfordDadCalls
-	end
+@Route104_EventScript_SailToDewford::
+@	setobjectsubpriority LOCALID_BRINEY_R104, MAP_ROUTE104, 0
+@	setobjectsubpriority OBJ_EVENT_ID_PLAYER, MAP_ROUTE104, 0
+@	applymovement LOCALID_BRINEY_R104, Route104_Movement_BrineyBoardBoat
+@	waitmovement 0
+@	removeobject LOCALID_BRINEY_R104
+@	applymovement OBJ_EVENT_ID_PLAYER, Route104_Movement_PlayerBoardBoat
+@	waitmovement 0
+@	hideobjectat OBJ_EVENT_ID_PLAYER, MAP_ROUTE104
+@	call Common_EventScript_PlayBrineysBoatMusic
+@	goto_if_set FLAG_ENABLE_NORMAN_MATCH_CALL, Route104_EventScript_SailToDewfordNoCall
+@	goto_if_unset FLAG_ENABLE_NORMAN_MATCH_CALL, Route104_EventScript_SailToDewfordDadCalls
+@	end
 
 Route104_EventScript_SailToDewfordNoCall::
 	applymovement LOCALID_BOAT_R104, Route104_Movement_SailToDewford
@@ -1175,3 +1213,12 @@ Route104_Text_BrendanPostBattle:
 	.string "making POKéMON battle.\p"
 	.string "Like MR. BRINEY, it's important to\n"
 	.string "become friends with your POKéMON.$"
+
+Route104_Text_SetSail:
+	.string "Alright, fine. I'm ready to sail.$"
+
+Route104__Text_TellMeWhenYouWantToSail:
+	.string "Well tell me when you want to sail.$"
+
+Route104_Text_SetSailForDewford:
+	.string "Let's get to Dewford then.$"

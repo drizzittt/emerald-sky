@@ -1,3 +1,6 @@
+.set LOCALID_GYM_GUIDE, 9
+.set LOCALID_BRAWLY, 1
+
 DewfordTown_Gym_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, DewfordTown_Gym_OnTransition
 	.byte 0
@@ -160,6 +163,7 @@ DewfordTown_Gym_EventScript_BrawlyDefeated::
 	msgbox DewfordTown_Gym_Text_RegisteredBrawly, MSGBOX_DEFAULT
 	waitfanfare
 	closemessage
+	goto DewfordTown_Gym_EventScript_Explosion
 	delay 30
 	setflag FLAG_ENABLE_BRAWLY_MATCH_CALL
 	setvar VAR_ROXANNE_CALL_STEP_COUNTER, 0
@@ -186,6 +190,24 @@ DewfordTown_Gym_EventScript_BrawlyRematch::
 	trainerbattle_rematch_double TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyPreRematch, DewfordTown_Gym_Text_BrawlyRematchDefeat, DewfordTown_Gym_Text_BrawlyRematchNeedTwoMons
 	msgbox DewfordTown_Gym_Text_BrawlyPostRematch, MSGBOX_AUTOCLOSE
 	end
+
+DewfordTown_Gym_EventScript_Explosion::
+	clearflag FLAG_HIDE_DEWFORD_GYM_GUIDE
+	applymovement LOCALID_GYM_GUIDE, DewfordTown_Gym_Movement_Explosion
+	waitmovement 0
+	msgbox DewfordTown_Gym_Test_Explosion, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_BRAWLY, Common_Movement_ExclamationMark
+	msgbox DewfordTown_Gym_Text_BrawlyReact, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_GYM_GUIDE, DewfordTown_Gym_Movement_GuideLeave
+	waitmovement 0
+	setflag FLAG_HIDE_DEWFORD_GYM_GUIDE
+	applymovement LOCALID_BRAWLY, DewfordTown_Gym_Movement_BrawlyLeave
+	waitmovement 0
+	setflag FLAG_HIDE_GYM_BRAWLY
+	release
+	return
 
 DewfordTown_Gym_EventScript_Takao::
 	trainerbattle_single TRAINER_TAKAO, DewfordTown_Gym_Text_TakaoIntro, DewfordTown_Gym_Text_TakaoDefeat, DewfordTown_Gym_EventScript_TakaoBrightenRoom
@@ -457,3 +479,36 @@ DewfordTown_Gym_Text_BrawlyRematchNeedTwoMons:
 	.string "that can battle.\p"
 	.string "I'm sorry, but I'd like you to come back\n"
 	.string "with at least two POKéMON.$"
+
+DewfordTown_Gym_Test_Explosion:
+	.string "Brawly! There was an explosion in\n"
+	.string "Granite Cave! Someone reported\p"
+	.string "seeing some people in green\n"
+	.string "uniforms!$"
+
+DewfordTown_Gym_Text_BrawlyReact:
+	.string "{PLAYER}, I'm sorry to cut this\n"
+	.string "short but I have to go see what's\p"
+	.string "going on… … Actually, can you meet\n"
+	.string "me at Granite Cave? I might need\p"
+	.string "some backup and you've proven to be\n"
+	.string "pretty strong!$"
+
+DewfordTown_Gym_Movement_Explosion:
+	walk_left
+	walk_left
+	step_end
+
+DewfordTown_Gym_Movement_GuideLeave:
+	walk_right
+	walk_right
+	step_end
+
+DewfordTown_Gym_Movement_BrawlyLeave:
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end

@@ -122,7 +122,7 @@
       "flag": "FLAG_HIDE_ROUTE_104_MR_BRINEY_BOAT"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
+      "graphics_id": "OBJ_EVENT_GFX_SAILOR",
       "x": 12,
       "y": 51,
       "elevation": 4,
@@ -131,7 +131,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0x0",
+      "script": "Route104_EventScript_SetSail",
       "flag": "FLAG_HIDE_ROUTE_104_MR_BRINEY"
     },
     {

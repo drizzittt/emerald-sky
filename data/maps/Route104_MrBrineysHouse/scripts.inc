@@ -76,11 +76,11 @@ Route104_MrBrineysHouse_Trigger_Brawly4::
 	end
 
 Route104_MrBrineysHouse_EventScript_Briney::
-	lockall
+	lock
 	faceplayer
 	msgbox Route104_MrBrineysHouse_Text_Briney
 	closemessage
-	releaseall
+	release
 	end
 
 Route104_MrBrineysHouse_Text_BrawlyDeal:

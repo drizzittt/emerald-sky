@@ -34,7 +34,7 @@ Grunt_Exit_Script::
 	waitmovement 0
 	removeobject LOCALID_GALE_GRUNT
 	setflag FLAG_HIDE_NEWRUSTURF_GRUNTS
-	setvar VAR_DEVON_CORP_3F_STATE, 3
+	setvar VAR_DEVON_CORP_3F_STATE, 2
 	releaseall
 	end
 
