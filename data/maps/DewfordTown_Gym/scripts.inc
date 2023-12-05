@@ -193,20 +193,43 @@ DewfordTown_Gym_EventScript_BrawlyRematch::
 
 DewfordTown_Gym_EventScript_Explosion::
 	clearflag FLAG_HIDE_DEWFORD_GYM_GUIDE
+	addobject LOCALID_GYM_GUIDE
 	applymovement LOCALID_GYM_GUIDE, DewfordTown_Gym_Movement_Explosion
 	waitmovement 0
 	msgbox DewfordTown_Gym_Test_Explosion, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_BRAWLY, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 16
 	msgbox DewfordTown_Gym_Text_BrawlyReact, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_GYM_GUIDE, DewfordTown_Gym_Movement_GuideLeave
 	waitmovement 0
 	setflag FLAG_HIDE_DEWFORD_GYM_GUIDE
-	applymovement LOCALID_BRAWLY, DewfordTown_Gym_Movement_BrawlyLeave
-	waitmovement 0
+	removeobject LOCALID_GYM_GUIDE
+	specialvar VAR_RESULT, GetPlayerFacingDirection
+	goto_if_eq  VAR_RESULT, DIR_NORTH, DewfordTown_EventScript_BrawlyLeaveLeft
+	goto_if_eq  VAR_RESULT, DIR_EAST, DewfordTown_EventScript_BrawlyLeaveDown
 	setflag FLAG_HIDE_GYM_BRAWLY
+	@removeobject LOCALID_BRAWLY
+	@setvar VAR_DEWFORD_TOWN_STATE, 1
+	clearflag FLAG_HIDE_WINONA_GRANITECAVE
+	clearflag FLAG_HIDE_BRAWLY_GRANITECAVE
 	release
+	return
+
+DewfordTown_EventScript_BrawlyLeaveLeft::
+	applymovement LOCALID_BRAWLY, DewfordTown_Gym_Movement_BrawlyLeaveLeft
+	waitmovement 0
+	removeobject LOCALID_BRAWLY
+	setvar VAR_DEWFORD_TOWN_STATE, 1
+	return
+
+DewfordTown_EventScript_BrawlyLeaveDown::
+	applymovement LOCALID_BRAWLY, DewfordTown_Gym_Movement_BrawlyLeaveDown
+	waitmovement 0
+	removeobject LOCALID_BRAWLY
+	setvar VAR_DEWFORD_TOWN_STATE, 1
 	return
 
 DewfordTown_Gym_EventScript_Takao::
@@ -284,22 +307,26 @@ DewfordTown_Gym_EventScript_GymGuidePostVictory::
 
 DewfordTown_Gym_EventScript_LeftGymStatue::
 	lockall
+	buffernumberstring STR_VAR_1, VAR_DEWFORD_TOWN_STATE
 	goto_if_set FLAG_BADGE02_GET, DewfordTown_Gym_EventScript_GymStatueCertified
 	goto DewfordTown_Gym_EventScript_GymStatue
 	end
 
 DewfordTown_Gym_EventScript_RightGymStatue::
 	lockall
+	buffernumberstring STR_VAR_1, VAR_DEWFORD_TOWN_STATE
 	goto_if_set FLAG_BADGE02_GET, DewfordTown_Gym_EventScript_GymStatueCertified
 	goto DewfordTown_Gym_EventScript_GymStatue
 	end
 
 DewfordTown_Gym_EventScript_GymStatueCertified::
+	buffernumberstring STR_VAR_1, VAR_DEWFORD_TOWN_STATE
 	msgbox DewfordTown_Gym_Text_GymStatueCertified, MSGBOX_DEFAULT
 	releaseall
 	end
 
 DewfordTown_Gym_EventScript_GymStatue::
+	buffernumberstring STR_VAR_1, VAR_DEWFORD_TOWN_STATE
 	msgbox DewfordTown_Gym_Text_GymStatue, MSGBOX_DEFAULT
 	releaseall
 	end
@@ -446,10 +473,12 @@ DewfordTown_Gym_Text_BrawlyPostBattle:
 	.string "among TRAINERS one day!$"
 
 DewfordTown_Gym_Text_GymStatue:
-	.string "DEWFORD TOWN POKéMON GYM$"
+	.string "DEWFORD TOWN POKéMON GYM\n"
+	.string "The current value is: {STR_VAR_1}$"
 
 DewfordTown_Gym_Text_GymStatueCertified:
 	.string "DEWFORD TOWN POKéMON GYM\p"
+	.string "The current value is: {STR_VAR_1}\n"
 	.string "BRAWLY'S CERTIFIED TRAINERS:\n"
 	.string "{PLAYER}$"
 
@@ -497,18 +526,43 @@ DewfordTown_Gym_Text_BrawlyReact:
 DewfordTown_Gym_Movement_Explosion:
 	walk_left
 	walk_left
+	walk_left
+	walk_left
 	step_end
 
 DewfordTown_Gym_Movement_GuideLeave:
 	walk_right
 	walk_right
+	walk_right
+	walk_right
+	walk_right
 	step_end
 
-DewfordTown_Gym_Movement_BrawlyLeave:
+DewfordTown_Gym_Movement_BrawlyLeaveDown:
 	walk_down
 	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	walk_right
 	walk_right
 	walk_right
 	walk_right
 	step_end
+
+DewfordTown_Gym_Movement_BrawlyLeaveLeft:
+	walk_left
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+

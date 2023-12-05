@@ -655,50 +655,42 @@ DewfordTown_Text_HallSign:
 	.string "“Everyone's information exchange!”$"
 
 Route104_Text_LandedInDewfordDeliverLetter:
-	.string "MR. BRINEY: Ahoy!\n"
-	.string "We've hit land in DEWFORD.\p"
-	.string "I suppose you're off to deliver that\n"
-	.string "LETTER to, who was it now, STEVEN!$"
+	.string "Briney: Well, we made it.\n"
+	.string "This is wonderful Dewford.\p"
+	.string "I suppose you're off to battle\n"
+	.string "Brawly. Do me a favor and win.$"
 
 DewfordTown_Text_SetSailBackToPetalburg:
-	.string "MR. BRINEY: Have you delivered your\n"
-	.string "LETTER?\p"
-	.string "Or were you meaning to sail back to\n"
-	.string "PETALBURG?$"
+	.string "Briney: Back to Petalburg\n"
+	.string "already?$"
 
 DewfordTown_Text_PetalburgWereSettingSail2:
-	.string "MR. BRINEY: PETALBURG it is, then!\p"
-	.string "Anchors aweigh!\n"
-	.string "PEEKO, we're setting sail, my darling!$"
+	.string "Briney: Well lets get going then.\n"
+	.string "Next stop, Petalburg.$"
 
 DewfordTown_Text_GoDeliverIllBeWaiting:
 	.string "MR. BRINEY: Then you go on and deliver\n"
 	.string "the LETTER. I'll be waiting.$"
 
 DewfordTown_Text_BrineyLandedInDewford:
-	.string "MR. BRINEY: Ahoy!\n"
-	.string "We've hit land in DEWFORD!\p"
-	.string "You just go on and tell me whenever\n"
-	.string "you want to set sail again!$"
+	.string "Briney: Well, we made it.\n"
+	.string "This is wonderful Dewford.$"
 
 DewfordTown_Text_WhereAreWeBound:
-	.string "MR. BRINEY: Ahoy!\n"
-	.string "For you, I'll go out to sea anytime!\p"
-	.string "Now, my friend, where are we bound?$"
+	.string "Briney: Where to now?$"
 
 DewfordTown_Text_PetalburgWereSettingSail:
-	.string "MR. BRINEY: PETALBURG, is it?\p"
-	.string "Anchors aweigh!\n"
-	.string "PEEKO, we're setting sail, my darling!$"
+	.string "Briney: Petalburg, is it?\n"
+	.string "Well get on then, let's go.$"
 
 DewfordTown_Text_SlateportWereSettingSail:
-	.string "MR. BRINEY: SLATEPORT, is it?\p"
-	.string "Anchors aweigh!\n"
-	.string "PEEKO, we're setting sail, my darling!$"
+	.string "Briney: Slateport, is it?\p"
+	.string "Well get on then, let's go.$"
 
 DewfordTown_Text_JustTellMeWhenYouNeedToSetSail:
-	.string "MR. BRINEY: You just tell me whenever\n"
-	.string "you need to set sail again!$"
+	.string "Briney: You just tell me whenever\n"
+	.string "you need to set sail again.\p"
+	.string "I should be here, not much business.$"
 
 DewfordTown_Text_GettingItchToFish:
 	.string "This is a renowned fishing spot.\n"

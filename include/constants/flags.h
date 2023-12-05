@@ -54,8 +54,8 @@
 #define FLAG_UNUSED_0x029    0x29 // DEBUG NO ENCOUNTERS
 #define FLAG_UNUSED_0x02A    0x2A // DEBUG NO TRAINERS SEE
 #define FLAG_UNUSED_0x02B    0x2B // DEBUG NO COLLISION
-#define FLAG_UNUSED_0x02C    0x2C // Unused Flag
-#define FLAG_UNUSED_0x02D    0x2D // Unused Flag
+#define FLAG_HIDE_WINONA_GRANITECAVE    0x2C // Unused Flag
+#define FLAG_HIDE_BRAWLY_GRANITECAVE    0x2D // Unused Flag
 #define FLAG_UNUSED_0x02E    0x2E // Unused Flag
 #define FLAG_UNUSED_0x02F    0x2F // Unused Flag
 #define FLAG_UNUSED_0x030    0x30 // Unused Flag
