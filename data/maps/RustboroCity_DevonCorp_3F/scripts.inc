@@ -62,7 +62,9 @@ RustboroCity_DevonCorp_3F_EventScript_MeetPresident::
 	call Common_EventScript_PlayerHandedOverTheItem
 	applymovement LOCALID_PROF_ALDEN, Common_Movement_ExclamationMark
 	waitmovement 0
-	msgbox DevonCorp_3F_Text_AldenExplain, MSGBOX_DEFAULT
+	msgbox DevonCorp_3F_Text_AldenExplain1, MSGBOX_DEFAULT
+	closemessage
+	msgbox DevonCorp_3F_Text_AldenExplain2, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_ROXANNE, RustboroCity_DevonCorp_3F_move_RoxannetoPlayer
 	waitmovement 0
@@ -279,13 +281,13 @@ DevonCorp_3F_Text_AldenReceive:
 	.string "...\p"
 	.string "What's this about a package from May?$"
 
-DevonCorp_3F_Text_AldenExplain:
+DevonCorp_3F_Text_AldenExplain1:
 	.string "Prof Alden: ..! How did she find..?!\n"
 	.string "Maxie, Roxanne, this is exactly\p"
 	.string "what we were looking for!\p"
 	.string "Roxanne: Wow, that's good timing!\p"
 	.string "Maxie: So we can actually find\n"
-	.string" them?\p"
+	.string " them?\p"
 	.string "Prof Alden: Yes, and I think we have\n"
 	.string "found someone to help us!\p"
 	.string "{PLAYER}, as you know, twenty years\n"
@@ -299,7 +301,9 @@ DevonCorp_3F_Text_AldenExplain:
 	.string "has greatly affected Hoenn, destroying\n"
 	.string "sites, uncovering lost caves and areas,\p"
 	.string "making new ones, and, of course,\n"
-	.string "attracting new Pokémon.\p"
+	.string "attracting new Pokémon.$"
+
+DevonCorp_3F_Text_AldenExplain2:
 	.string "Maxie: Some of these are good things,\n"
 	.string "but there was a lot of destruction.\p"
 	.string "We believe we have uncovered the site\n"
