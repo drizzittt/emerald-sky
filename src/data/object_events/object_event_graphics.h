@@ -454,6 +454,9 @@ const u16 gObjectEventPal_BeastBall[] = INCBIN_U16("graphics/object_events/pics/
 const u16 gObjectEventPal_StrangeBall[] = INCBIN_U16("graphics/object_events/pics/misc/ball_strange.gbapal");
 #endif //ITEM_STRANGE_BALL
 #endif //OW_FOLLOWERS_POKEBALLS
+
+const u32 gFieldEffectObjectPic_CaveDust[] = INCBIN_U32("graphics/field_effects/pics/cave_dust.4bpp");
+const u16 gFieldEffectObjectPalette_CaveDust[] = INCBIN_U16("graphics/field_effects/palettes/cave_dust.gbapal");
 const u16 gObjectEventPal_GaleForce[] = INCBIN_U16("graphics/object_events/palettes/gale_force.gbapal");
 const u32 gObjectEventPic_ProfAlden[] = INCBIN_U32("graphics/object_events/pics/people/prof_alden.4bpp");
 const u16 gObjectEventPal_ProfAlden[] = INCBIN_U16("graphics/object_events/pics/people/prof_alden.gbapal");
