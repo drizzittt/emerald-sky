@@ -1,8 +1,3 @@
-@ Local IDs are the same for both players houses
-.set LOCALID_MOM, 1
-.set LOCALID_DAD, 5
-.set LOCALID_MOM_2F, 14
-
 PlayersHouse_2F_EventScript_BlockStairsUntilClockIsSet::
 	setvar VAR_LITTLEROOT_INTRO_STATE, 5
 	return
@@ -335,14 +330,14 @@ PlayersHouse_1F_Movement_MovePlayerAwayFromDoor:
 @	return
 
 PlayersHouse_1F_EventScript_DadExitsMale::
-	applymovement OBJ_EVENT_ID_PLAYER, PlayersHouse_1F_Movement_MomAndPlayerWatchDadExit
+	applymovement LOCALID_PLAYER, PlayersHouse_1F_Movement_MomAndPlayerWatchDadExit
 	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomAndPlayerWatchDadExit
 	applymovement VAR_0x8009, PlayersHouse_1F_Movement_DadExitsMale
 	waitmovement 0
 	return
 
 PlayersHouse_1F_EventScript_DadExitsFemale::
-	applymovement OBJ_EVENT_ID_PLAYER, PlayersHouse_1F_Movement_MomAndPlayerWatchDadExit
+	applymovement LOCALID_PLAYER, PlayersHouse_1F_Movement_MomAndPlayerWatchDadExit
 	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomAndPlayerWatchDadExit
 	applymovement VAR_0x8009, PlayersHouse_1F_Movement_DadExitsFemale
 	waitmovement 0
@@ -375,14 +370,14 @@ PlayersHouse_1F_EventScript_DadExitsFemale::
 PlayersHouse_1F_EventScript_MomApproachPlayerMale::
 	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomApproachPlayerMale
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
 	return
 
 PlayersHouse_1F_EventScript_MomApproachPlayerFemale::
 	applymovement VAR_0x800A, PlayersHouse_1F_Movement_MomApproachPlayerFemale
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
 	return
 

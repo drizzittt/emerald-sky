@@ -31,7 +31,7 @@ PetalburgCity_EventScript_Boy::
 	faceplayer
 	msgbox PetalburgCity_Text_WaterReflection, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_BOY, Common_Movement_FaceOriginalDirection
+	applymovement LOCALID_PETALBURG_BOY, Common_Movement_FaceOriginalDirection
 	waitmovement 0
 	release
 	end
