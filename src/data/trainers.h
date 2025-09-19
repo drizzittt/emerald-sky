@@ -381,38 +381,6 @@ F_TRAINER_FEMALE |
             },
         },
     },
-#line 225
-    [TRAINER_GRUNT_PETALBURG_WOODS] =
-    {
-#line 226
-        .trainerName = _("GRUNT"),
-#line 227
-        .trainerClass = TRAINER_CLASS_TEAM_AQUA,
-#line 228
-        .trainerPic = TRAINER_PIC_AQUA_GRUNT_M,
-        .encounterMusic_gender = 
-#line 230
-            TRAINER_ENCOUNTER_MUSIC_AQUA,
-#line 231
-        .doubleBattle = FALSE,
-#line 232
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .partySize = 1,
-        .party = (const struct TrainerMon[])
-        {
-            {
-#line 234
-            .species = SPECIES_POOCHYENA,
-            .gender = TRAINER_MON_RANDOM_GENDER,
-#line 236
-            .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-#line 235
-            .lvl = 9,
-            .nature = NATURE_HARDY,
-            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
-            },
-        },
-    },
 #line 238
     [TRAINER_MARCEL] =
     {
