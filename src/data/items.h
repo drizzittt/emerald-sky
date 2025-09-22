@@ -8682,7 +8682,7 @@ const struct Item gItemsInfo[] =
 
     [ITEM_PACKAGE] =
     {
-        .name = _("Package"),
+        .name = ITEM_NAME("Package"),
         .price = 0,
         .description = COMPOUND_STRING(
             "An oddly shaped\n"
@@ -8695,7 +8695,7 @@ const struct Item gItemsInfo[] =
 
     [ITEM_KEYSTONE] =
     {
-        .name = _("Keystone"),
+        .name = ITEM_NAME("Keystone"),
         .price = 0,
         .description = COMPOUND_STRING(
             "A package given\n"
