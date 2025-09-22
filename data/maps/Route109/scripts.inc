@@ -48,10 +48,10 @@ Route109_EventScript_DoSailToDewford::
 	waitmovement 0
 	addobject LOCALID_DEWFORD_BOAT
 	clearflag FLAG_HIDE_MR_BRINEY_BOAT_DEWFORD_TOWN
-	setobjectxyperm LOCALID_DEWFORD_BRINEY, 12, 8
-	addobject LOCALID_DEWFORD_BRINEY
-	setobjectsubpriority LOCALID_DEWFORD_BRINEY, MAP_DEWFORD_TOWN, 0
-	applymovement LOCALID_DEWFORD_BRINEY, Route109_Movement_BrineyExitBoat
+	setobjectxyperm LOCALID_BRINEY, 12, 8
+	addobject LOCALID_BRINEY
+	setobjectsubpriority LOCALID_BRINEY, MAP_DEWFORD_TOWN, 0
+	applymovement LOCALID_BRINEY, Route109_Movement_BrineyExitBoat
 	waitmovement 0
 	clearflag FLAG_HIDE_MR_BRINEY_DEWFORD_TOWN
 	setflag FLAG_HIDE_ROUTE_109_MR_BRINEY_BOAT
@@ -60,8 +60,8 @@ Route109_EventScript_DoSailToDewford::
 	closemessage
 	copyvar VAR_BRINEY_LOCATION, VAR_0x8008
 	resetobjectsubpriority LOCALID_PLAYER, MAP_ROUTE109
-	resetobjectsubpriority LOCALID_DEWFORD_BRINEY, MAP_DEWFORD_TOWN
-	copyobjectxytoperm LOCALID_DEWFORD_BRINEY
+	resetobjectsubpriority LOCALID_BRINEY, MAP_DEWFORD_TOWN
+	copyobjectxytoperm LOCALID_BRINEY
 	release
 	end
 

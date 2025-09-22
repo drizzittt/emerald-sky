@@ -394,12 +394,12 @@ LittlerootTown_ProfessorBirchsLab_EventScript_SetPlayerPosForReceiveStarter::
 
 LittlerootTown_ProfessorBirchsLab_EventScript_SetObjectPosForDexUpgrade::
 	turnobject LOCALID_PLAYER, DIR_NORTH
-	addobject LOCALID_BIRCHS_LAB_BIRCH
+	addobject LOCALID_BIRCH
 	addobject LOCALID_BIRCHS_LAB_RIVAL
 	turnobject LOCALID_BIRCHS_LAB_RIVAL, DIR_NORTH
 	setobjectxy LOCALID_BIRCHS_LAB_RIVAL, 5, 5
-	turnobject LOCALID_BIRCHS_LAB_BIRCH, DIR_SOUTH
-	setobjectxy LOCALID_BIRCHS_LAB_BIRCH, 6, 4
+	turnobject LOCALID_BIRCH, DIR_SOUTH
+	setobjectxy LOCALID_BIRCH, 6, 4
 	turnobject LOCALID_BIRCHS_LAB_AIDE, DIR_EAST
 	setobjectxy LOCALID_BIRCHS_LAB_AIDE, 10, 10
 	end

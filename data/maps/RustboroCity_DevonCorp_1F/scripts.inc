@@ -28,7 +28,7 @@ RustboroCity_DevonCorp_1F_EventScript_NoVisitors::
 	msgbox RustboroCity_DevonCorp_1F_Text_NoVisitors, MSGBOX_DEFAULT
 	closemessage
 	setflag FLAG_RETURNED_MAYS_PACKAGE
-	applymovement LOCALID_STAIR_GUARD, Move_Guard_From_Stairs
+	applymovement LOCALID_DEVON_CORP_STAIR_GUARD, Move_Guard_From_Stairs
 	waitmovement 0
 	release
 	end
