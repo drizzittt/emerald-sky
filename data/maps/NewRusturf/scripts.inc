@@ -1,5 +1,5 @@
-.set LOCALID_GALE_GRUNT_1, 4
-.set LOCALID_GALE_GRUNT, 5
+@.set LOCALID_GALE_GRUNT_1, 4
+@.set LOCALID_GALE_GRUNT_2, 5
 
 NewRusturf_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, NewRusturf_OnLoad
@@ -9,11 +9,11 @@ NewRusturf_OnLoad::
 	end
 
 RusturfTunnel_EventScript_Grunt1::
-	trainerbattle_single TRAINER_GRUNT_NEWRUSTURF_1, RusturfTunnel_Text_Grunt1Intro, RusturfTunnel_Text_Grunt1Defeat
+	trainerbattle_single TRAINER_GRUNT_GALE_RUSTURF_1, RusturfTunnel_Text_Grunt1Intro, RusturfTunnel_Text_Grunt1Defeat
 	end
 
 RusturfTunnel_EventScript_Grunt::
-	trainerbattle_single TRAINER_GRUNT_RUSTURF_TUNNEL, RusturfTunnel_Text_GruntIntro, RusturfTunnel_Text_GruntDefeat, Grunt_Defeated_Script
+	trainerbattle_single TRAINER_GRUNT_GALE_RUSTURF_2, RusturfTunnel_Text_GruntIntro, RusturfTunnel_Text_GruntDefeat, Grunt_Defeated_Script
 	end
 
 Grunt_Defeated_Script::
@@ -30,9 +30,9 @@ Grunt_Push_Player::
 	end
 
 Grunt_Exit_Script::
-	applymovement LOCALID_GALE_GRUNT, GRUNT_EXIT_MOVEMENT
+	applymovement LOCALID_GALE_GRUNT_2, GRUNT_EXIT_MOVEMENT
 	waitmovement 0
-	removeobject LOCALID_GALE_GRUNT
+	removeobject LOCALID_GALE_GRUNT_2
 	setflag FLAG_HIDE_NEWRUSTURF_GRUNTS
 	setvar VAR_DEVON_CORP_3F_STATE, 2
 	releaseall
