@@ -1053,7 +1053,7 @@ enum __attribute__((packed)) Item
 
     // Custom Items
     ITEM_PACKAGE = 874,
-    ITEM_KEYSTONE = 875
+    ITEM_KEYSTONE = 875,
 
     ITEMS_COUNT,
     ITEM_FIELD_ARROW = ITEMS_COUNT,
