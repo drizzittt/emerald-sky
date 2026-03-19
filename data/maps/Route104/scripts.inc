@@ -443,6 +443,7 @@ Route104_EventScript_ArriveInDewford::
 	setflag FLAG_HIDE_ROUTE_104_MR_BRINEY_BOAT
 	hideobjectat LOCALID_ROUTE104_BOAT, MAP_ROUTE104
 	copyvar VAR_BRINEY_LOCATION, VAR_0x8008
+	setvar VAR_BRINEY_LOCATION, 2
 	resetobjectsubpriority LOCALID_PLAYER, MAP_ROUTE104
 	resetobjectsubpriority LOCALID_BRINEY, MAP_DEWFORD_TOWN
 	copyobjectxytoperm LOCALID_BRINEY

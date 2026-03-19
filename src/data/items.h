@@ -9699,6 +9699,8 @@ const struct ItemInfo gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_OddKeystone,
+        .iconPalette = gItemIconPalette_OddKeystone,
     },  
 
     [ITEM_EXP_SHARE] =

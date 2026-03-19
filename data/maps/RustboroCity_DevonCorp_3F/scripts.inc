@@ -440,7 +440,7 @@ RustboroCity_DevonCorp_3F_Text_MaxieKey:
 	.string "Maxie: I appreciate your enthusiasm\n"
 	.string "Professor, but this hardly proves\p"
 	.string "everything you've been saying.\n"
-	.string "We still need the two other keys\n"
+	.string "We still need the two other keys\p"
 	.string "and to locate the ruins themselves.$"
 
 RustboroCity_DevonCorp_3F_Text_AldenCont:
