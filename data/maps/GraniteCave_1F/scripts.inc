@@ -112,20 +112,21 @@ GraniteCave_1F_Text_HikerScared:
 	.string "that battle!$"
 
 GraniteCave_1F_Text_WinonaHere:
-	.string "Winona?! What are you doing here?$"
+	.string "Brawly: Winona?! What are you\n"
+	.string "doing here?$"
 
 GraniteCave_1F_Text_WinonaReply:
-	.string "Brawly, this is bigger than you\p"
-	.string "could understand. Please don't\n"
-	.string "interfere. I don't want to have\p"
-	.string "to hurt you.$"
+	.string "Winona: Brawly, this is bigger\n"
+	.string "than you could understand. Please\p"
+	.string "don't interfere. I don't want to\n"
+	.string "have to hurt you$"
 
 GraniteCave_1F_Text_HoldHer:
-	.string "I can't let you disrupt nature\p"
-	.string "here. Come with me peacefully, or\n"
-	.string "you'll find out how much I've trained\p"
-	.string "firsthand. {PLAYER}, you keep going\n"
-	.string "I'll deal with her!$"
+	.string "Brawly: I can't let you disrupt\n"
+	.string "nature here. Come with me peacefully\p"
+	.string "or you'll find out how much I've\n"
+	.string "trained firsthand. {PLAYER}, you\p"
+	.string "keep going. I'll deal with her!$"
 
 GraniteCave_1F_Text_Go:
 	.string "Go, I've got this!$"
