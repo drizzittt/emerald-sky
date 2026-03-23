@@ -54,8 +54,8 @@ GraniteCave_1F_EventScript_Winona::
 GraniteCave_1F_EventScript_Hiker::
 	lock
 	faceplayer
-	goto_if_eq VAR_DEWFORD_TOWN_STATE, 1, GraniteCave_1F_Hiker_BrawlyAndWinona
 	goto_if_set FLAG_RECEIVED_HM_FLASH, GraniteCave_1F_EventScript_ReceivedFlash
+	goto_if_eq VAR_DEWFORD_TOWN_STATE, 1, GraniteCave_1F_Hiker_BrawlyAndWinona
 	msgbox GraniteCave_1F_Text_GetsDarkAheadHereYouGo, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, GraniteCave_EventScript_BattleHiker
 	msgbox GraniteCave_1F_Text_NoFlash, MSGBOX_DEFAULT
@@ -80,6 +80,42 @@ Hiker_Defeated_Script::
 
 GraniteCave_1F_EventScript_ReceivedFlash::
 	msgbox GraniteCave_1F_Text_ExplainFlash, MSGBOX_DEFAULT
+	release
+	end
+
+GraniteCave_1F_BrawlyAfterSteven1::
+	lock
+	removeobject LOCALID_BRAWLY
+	addobject LOCALID_BRAWLY
+	setobjectxy LOCALID_BRAWLY, 31, 7
+	applymovement LOCALID_BRAWLY, GraniteCave_1F_Movement_BrawlyEnter1
+	waitmovement LOCALID_BRAWLY
+	turnobject LOCALID_PLAYER, DIR_SOUTH
+	goto GraniteCave_1F_BrawlyAfterStevenCommon
+	release
+	end
+
+GraniteCave_1F_BrawlyAfterSteven2::
+	lock
+	removeobject LOCALID_BRAWLY
+	addobject LOCALID_BRAWLY
+	setobjectxy LOCALID_BRAWLY, 31, 7
+	applymovement LOCALID_BRAWLY, GraniteCave_1F_Movement_BrawlyEnter2
+	waitmovement LOCALID_BRAWLY
+	goto GraniteCave_1F_BrawlyAfterStevenCommon
+	release
+	end
+
+GraniteCave_1F_BrawlyAfterStevenCommon::
+	msgbox GraniteCave_1F_Text_BrawlyHealAfterSteven, MSGBOX_DEFAULT
+	closemessage
+	call Common_EventScript_OutOfCenterPartyHeal
+	msgbox GraniteCave_1F_Text_BrawlyAfterSteven, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_BRAWLY, GraniteCave_1F_Movement_BrawlyExit
+	waitmovement LOCALID_BRAWLY
+	setvar VAR_DEWFORD_TOWN_STATE, 4
+	removeobject LOCALID_BRAWLY
 	release
 	end
 
@@ -135,3 +171,53 @@ GraniteCave_1F_Text_Go:
 
 GraniteCave_1F_EventScript_GoAhead:
 	.string "Go ahead, you won't get far.$"
+
+GraniteCave_1F_Text_BrawlyHealAfterSteven:
+	.string "Are you and your Pokémon alright?\n"
+	.string "Here, let me heal them real quick.$"
+
+GraniteCave_1F_Text_BrawlyAfterSteven:
+	.string "That was weird. I haven't seen Winona\n"
+	.string "since she retired five years ago.\p"
+	.string "And that looked like Steven just\n"
+	.string "leaving! I thought he left the region\p"
+	.string "after the stuff with Devon.\n"
+	.string "I'm not sure what all that stuff about\p"
+	.string "the sky was, but be careful out there\n"
+	.string "{PLAYER}. I think they meant business,\p"
+	.string "whatever it is. Thanks for the help!\n"
+	.string "Catch ya later!$"
+
+GraniteCave_1F_Movement_BrawlyEnter1:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	face_up
+	step_end
+
+GraniteCave_1F_Movement_BrawlyEnter2:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+GraniteCave_1F_Movement_BrawlyExit:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end

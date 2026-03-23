@@ -18,8 +18,8 @@ GraniteCave_StevenRoom_GreetAndMonologue::
 	end
 
 GraniteCave_StevenRoom_ExitLeft::
-	applymovement LOCALID_BRAWLY, GraniteCave_StevenRoom_Movement_ExitLeft
-	waitmovement 0
+	applymovement LOCALID_STEVEN, GraniteCave_StevenRoom_Movement_ExitLeft
+	waitmovement LOCALID_STEVEN
 	removeobject LOCALID_STEVEN
 	setflag FLAG_HIDE_GRANITE_GRUNTS
 	setflag FLAG_HIDE_WINONA_GRANITECAVE
@@ -28,8 +28,8 @@ GraniteCave_StevenRoom_ExitLeft::
 	return
 
 GraniteCave_StevenRoom_ExitDown::
-	applymovement LOCALID_BRAWLY, GraniteCave_StevenRoom_Movement_ExitDown
-	waitmovement 0
+	applymovement LOCALID_STEVEN, GraniteCave_StevenRoom_Movement_ExitDown
+	waitmovement LOCALID_STEVEN
 	removeobject LOCALID_STEVEN
 	setflag FLAG_HIDE_GRANITE_GRUNTS
 	setflag FLAG_HIDE_WINONA_GRANITECAVE
@@ -38,8 +38,8 @@ GraniteCave_StevenRoom_ExitDown::
 	return
 
 GraniteCave_StevenRoom_ExitRight::
-	applymovement LOCALID_BRAWLY, GraniteCave_StevenRoom_Movement_ExitRight
-	waitmovement 0
+	applymovement LOCALID_STEVEN, GraniteCave_StevenRoom_Movement_ExitRight
+	waitmovement LOCALID_STEVEN
 	removeobject LOCALID_STEVEN
 	setflag FLAG_HIDE_GRANITE_GRUNTS
 	setflag FLAG_HIDE_WINONA_GRANITECAVE
@@ -98,9 +98,6 @@ GraniteCave_StevenRoom_Movement_ExitDown:
 	step_end
 
 GraniteCave_StevenRoom_Movement_ExitRight:
-	walk_right
-	walk_down
-	walk_left
 	walk_left
 	walk_left
 	walk_left

@@ -1,4 +1,4 @@
-.set LOCALID_BRAWLY, 1
+@.set LOCALID_BRAWLY, 1
 @.set LOCALID_BRINEY, 2
 
 Route104_MrBrineysHouse_MapScripts::

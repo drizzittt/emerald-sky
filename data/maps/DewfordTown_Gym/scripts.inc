@@ -1,5 +1,5 @@
-.set LOCALID_GYM_GUIDE, 9
-.set LOCALID_BRAWLY, 1
+@.set LOCALID_GYM_GUIDE, 9
+@.set LOCALID_BRAWLY, 1
 
 DewfordTown_Gym_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, DewfordTown_Gym_OnTransition
