@@ -573,6 +573,7 @@
 #define OBJ_EVENT_PAL_TAG_SS_ANNE                 0x1139
 #define OBJ_EVENT_PAL_TAG_GALE_FORCE              0x1140
 #define OBJ_EVENT_PAL_TAG_PROF_ALDEN              0x1141
+#define OBJ_EVENT_PAL_TAG_WINONA                  0x1142
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla

@@ -471,6 +471,8 @@ const u16 gObjectEventPal_GaleForce[] = INCBIN_U16("graphics/object_events/palet
 const u32 gObjectEventPic_ProfAlden[] = INCBIN_U32("graphics/object_events/pics/people/prof_alden.4bpp");
 const u16 gObjectEventPal_ProfAlden[] = INCBIN_U16("graphics/object_events/pics/people/prof_alden.gbapal");
 
+const u16 gObjectEventPal_Winona[] = INCBIN_U16("graphics/object_events/palettes/winona.gbapal");
+
 #if IS_FRLG
 
 const u16 gObjectEventPic_RedNormal[] = INCBIN_U16("graphics/object_events/pics/people/red/red_normal.4bpp");
