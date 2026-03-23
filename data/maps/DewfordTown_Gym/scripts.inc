@@ -207,14 +207,12 @@ DewfordTown_Gym_EventScript_Explosion::
 	waitmovement 0
 	setflag FLAG_HIDE_DEWFORD_GYM_GUIDE
 	removeobject LOCALID_GYM_GUIDE
+	clearflag FLAG_HIDE_WINONA_GRANITECAVE
+	clearflag FLAG_HIDE_BRAWLY_GRANITECAVE
+	clearflag FLAG_HIDE_GRANITE_GRUNTS
 	specialvar VAR_RESULT, GetPlayerFacingDirection
 	goto_if_eq  VAR_RESULT, DIR_NORTH, DewfordTown_EventScript_BrawlyLeaveLeft
 	goto_if_eq  VAR_RESULT, DIR_EAST, DewfordTown_EventScript_BrawlyLeaveDown
-	setflag FLAG_HIDE_GYM_BRAWLY
-	@removeobject LOCALID_BRAWLY
-	@setvar VAR_DEWFORD_TOWN_STATE, 1
-	clearflag FLAG_HIDE_WINONA_GRANITECAVE
-	clearflag FLAG_HIDE_BRAWLY_GRANITECAVE
 	release
 	return
 
@@ -222,6 +220,7 @@ DewfordTown_EventScript_BrawlyLeaveLeft::
 	applymovement LOCALID_BRAWLY, DewfordTown_Gym_Movement_BrawlyLeaveLeft
 	waitmovement 0
 	removeobject LOCALID_BRAWLY
+	setflag FLAG_HIDE_GYM_BRAWLY
 	setvar VAR_DEWFORD_TOWN_STATE, 1
 	return
 
@@ -229,6 +228,7 @@ DewfordTown_EventScript_BrawlyLeaveDown::
 	applymovement LOCALID_BRAWLY, DewfordTown_Gym_Movement_BrawlyLeaveDown
 	waitmovement 0
 	removeobject LOCALID_BRAWLY
+	setflag FLAG_HIDE_GYM_BRAWLY
 	setvar VAR_DEWFORD_TOWN_STATE, 1
 	return
 

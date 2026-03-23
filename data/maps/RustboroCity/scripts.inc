@@ -569,10 +569,6 @@ RustboroCity_Text_RegisteredMay:
 	.string "in the POKéNAV.$"
 
 RustboroCity_Text_MayPassedBrineyWantToBattle:
-	.string "MAY: Oh, by the way, I passed\n"
-	.string "Mr. Briney in PETALBURG WOODS.\p"
-	.string "I guess he's on his way home to his\n"
-	.string "cottage by the sea.\p"
 	.string "How's your POKéDEX coming along,\n"
 	.string "{PLAYER}{KUN}? Mine's looking pretty decent!\p"
 	.string "So…\n"
@@ -597,11 +593,12 @@ RustboroCity_Text_MayDefeat:
 	.string "You're better than I expected!$"
 
 RustboroCity_Text_MayMrBrineyHint:
-	.string "MAY: Oh, by the way, Mr. Briney, who\n"
-	.string "I just passed…\p"
-	.string "{PLAYER}{KUN}, you just moved here so you\n"
-	.string "might not know this, but Mr. Briney\l"
-	.string "was once a revered seafarer.$"
+	.string "MAY: Oh, by the way, I heard Bill Briney\n"
+	.string "just set up a contract with Brawley to\p"
+	.string "ferry trainers to and from Dewford.\n"
+	.string "{PLAYER}{KUN}, did you ever meet Mr. Briney?\p"
+	.string "Bill is his son, and I hear is just as good\n"
+	.string "a sailor.$"
 
 RustboroCity_Text_BrendanHiLetsRegister:
 	.string "BRENDAN: Oh, hey, {PLAYER}!\p"
@@ -643,11 +640,12 @@ RustboroCity_Text_BrendanDefeat:
 	.string "You're pretty good.$"
 
 RustboroCity_Text_BrendanMrBrineyHint:
-	.string "BRENDAN: By the way, you know\n"
-	.string "Mr. Briney? The guy I just passed?\p"
-	.string "I bet you didn't know this, since you\n"
-	.string "just moved here, {PLAYER}, but\l"
-	.string "Mr. Briney was once a great sailor.$"
+	.string "Brendan: Oh, I heard Bill Briney\n"
+	.string "just set up a contract with Brawley to\p"
+	.string "sail trainers to Dewford.\n"
+	.string "{PLAYER}{KUN}, remember Mr. Briney?\p"
+	.string "Bill is his son, and I hear is just as good\n"
+	.string "a sailor if not better.$"
 
 RustboroCity_Text_TunnelNearingCompletion:
 	.string "“Timesaving tunnel nearing\n"

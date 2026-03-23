@@ -51,21 +51,21 @@
 
 #else
 
-#define FLAG_HIDE_STARTER_BALL_ONE      0x20 // Unused Flag hide starter ball drizzitt
-#define FLAG_HIDE_STARTER_BALL_TWO      0x21 // Unused Flag
-#define FLAG_HIDE_STARTER_BALL_THREE    0x22 // Unused Flag
+#define FLAG_HIDE_STARTER_BALL_ONE      0x20 // hide starter ball drizzitt
+#define FLAG_HIDE_STARTER_BALL_TWO      0x21 // drizzitt
+#define FLAG_HIDE_STARTER_BALL_THREE    0x22 // drizzitt
 #define FLAG_HIDE_ROXANNE_DEVON         0x23 // drizzitt
 #define FLAG_HIDE_RUSTBOROGYM_BLOCKER   0x24 // drizzitt
-#define FLAG_RETURNED_MAYS_PACKAGE      0x25 // Unused Flag
-#define FLAG_HIDE_NEWRUSTURF_KEYSTONE   0x26 // Unused Flag
-#define FLAG_HIDE_DEWFORD_GYM_GUIDE     0x27 // Unused Flag
-#define FLAG_HIDE_GYM_BRAWLY            0x28 // Unused Flag
-#define FLAG_UNUSED_0x029    0x29 // DEBUG NO ENCOUNTERS
-#define FLAG_UNUSED_0x02A    0x2A // DEBUG NO TRAINERS SEE
-#define FLAG_UNUSED_0x02B    0x2B // DEBUG NO COLLISION
-#define FLAG_HIDE_WINONA_GRANITECAVE    0x2C // Unused Flag
-#define FLAG_HIDE_BRAWLY_GRANITECAVE    0x2D // Unused Flag
-#define FLAG_UNUSED_0x02E    0x2E // Unused Flag
+#define FLAG_RETURNED_MAYS_PACKAGE      0x25 // drizzitt
+#define FLAG_HIDE_NEWRUSTURF_KEYSTONE   0x26 // drizzitt
+#define FLAG_HIDE_DEWFORD_GYM_GUIDE     0x27 // drizzitt
+#define FLAG_HIDE_GYM_BRAWLY            0x28 // drizzitt
+#define FLAG_UNUSED_0x029               0x29 // DEBUG NO ENCOUNTERS
+#define FLAG_UNUSED_0x02A               0x2A // DEBUG NO TRAINERS SEE
+#define FLAG_UNUSED_0x02B               0x2B // DEBUG NO COLLISION
+#define FLAG_HIDE_WINONA_GRANITECAVE    0x2C // drizzitt
+#define FLAG_HIDE_BRAWLY_GRANITECAVE    0x2D // drizzitt
+#define FLAG_HIDE_GRANITE_GRUNTS        0x2E // drizzitt
 #define FLAG_UNUSED_0x02F    0x2F // Unused Flag
 #define FLAG_UNUSED_0x030    0x30 // Unused Flag
 #define FLAG_UNUSED_0x031    0x31 // Unused Flag

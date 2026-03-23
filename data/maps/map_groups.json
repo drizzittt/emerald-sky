@@ -476,7 +476,8 @@
     "TerraCave_End",
     "AlteringCave",
     "MeteorFalls_StevensCave",
-    "NewRusturf"
+    "NewRusturf",
+    "GraniteCave_StevenRoom"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

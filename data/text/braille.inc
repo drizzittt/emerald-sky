@@ -116,6 +116,12 @@ AncientTomb_Braille_ShineInTheMiddle:
 	.braille "WILL, SHINE\n"
 	.braille "IN THE MIDDLE.$"
 
+GraniteCave_BrailleWall:
+	brailleformat 3, 0, 25, 19, 6, 3
+	.braille "WHEN THE STARS\n"
+	.braille "AWAKEN, THE\n"
+	.braille "SKY MUST ANSWER.$"
+
 @ FRLG
 Braille_Text_Up::
 	brailleformat 3, 0, 25, 19, 6, 3

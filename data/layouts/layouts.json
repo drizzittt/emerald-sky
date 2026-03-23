@@ -9383,6 +9383,16 @@
       "secondary_tileset": "gTileset_RusturfTunnel",
       "border_filepath": "data/layouts/NewRusturf/border.bin",
       "blockdata_filepath": "data/layouts/NewRusturf/map.bin"
+    },
+    {
+      "id": "LAYOUT_GRANITE_CAVE_STEVEN_ROOM",
+      "name": "GraniteCave_StevenRoom_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/GraniteCave_StevenRoom/border.bin",
+      "blockdata_filepath": "data/layouts/GraniteCave_StevenRoom/map.bin"
     }
   ]
 }

@@ -1745,3 +1745,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/DevonLaboratory_2F/scripts.inc"
 
 	.include "data/maps/NewRusturf/scripts.inc"
+
+	.include "data/maps/GraniteCave_StevenRoom/scripts.inc"
