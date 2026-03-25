@@ -4124,13 +4124,13 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 #if P_FAMILY_MAKUHITA
     [SPECIES_MAKUHITA] =
     {
-        .baseHP        = 72,
-        .baseAttack    = 60,
-        .baseDefense   = 30,
-        .baseSpeed     = 25,
-        .baseSpAttack  = 20,
-        .baseSpDefense = 30,
-        .types = MON_TYPES(TYPE_FIGHTING),
+        .baseHP        = 75,
+        .baseAttack    = 85,
+        .baseDefense   = 70,
+        .baseSpeed     = 45,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 70,
+        .types = MON_TYPES(TYPE_FIGHTING, TYPE_BUG),
         .catchRate = 180,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 47 : 87,
         .evYield_HP = 1,
@@ -4200,13 +4200,13 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 
     [SPECIES_HARIYAMA] =
     {
-        .baseHP        = 144,
-        .baseAttack    = 120,
-        .baseDefense   = 60,
-        .baseSpeed     = 50,
-        .baseSpAttack  = 40,
-        .baseSpDefense = 60,
-        .types = MON_TYPES(TYPE_FIGHTING),
+        .baseHP        = 120,
+        .baseAttack    = 110,
+        .baseDefense   = 90,
+        .baseSpeed     = 70,
+        .baseSpAttack  = 70,
+        .baseSpDefense = 80,
+        .types = MON_TYPES(TYPE_FIGHTING, TYPE_BUG),
         .catchRate = 200,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 166 : 184,
         .evYield_HP = 2,
