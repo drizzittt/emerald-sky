@@ -9,7 +9,7 @@ DewfordTown_OnTransition:
 DewfordTown_EventScript_Briney::
 	lock
 	faceplayer
-	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, DewfordTown_EventScript_ReturnToPetalburgPrompt
+	goto_if_unset FLAG_ENCOUNTERED_STEVEN_FIRST, DewfordTown_EventScript_ReturnToPetalburgPrompt
 	message DewfordTown_Text_WhereAreWeBound
 	waitmessage
 	multichoicedefault 21, 6, MULTI_BRINEY_ON_DEWFORD, 2, FALSE
@@ -652,8 +652,8 @@ Route104_Text_LandedInDewfordDeliverLetter:
 	.string "Brawly. Do me a favor and win.$"
 
 DewfordTown_Text_SetSailBackToPetalburg:
-	.string "Briney: Back to Petalburg\n"
-	.string "already?$"
+	.string "Briney: I still only have my\n"
+	.string "route to Petalburg set.$"
 
 DewfordTown_Text_PetalburgWereSettingSail2:
 	.string "Briney: Well lets get going then.\n"
@@ -668,7 +668,7 @@ DewfordTown_Text_BrineyLandedInDewford:
 	.string "This is wonderful Dewford.$"
 
 DewfordTown_Text_WhereAreWeBound:
-	.string "Briney: Where to now?$"
+	.string "Briney: Alright, where to now?$"
 
 DewfordTown_Text_PetalburgWereSettingSail:
 	.string "Briney: Petalburg, is it?\n"

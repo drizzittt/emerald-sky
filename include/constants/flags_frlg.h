@@ -1614,7 +1614,7 @@
 #define FLAG_DECORATION_13                   0
 #define FLAG_DECORATION_14                   0
 #define FLAG_RECEIVED_POKENAV                0
-#define FLAG_DELIVERED_STEVEN_LETTER         0
+#define FLAG_ENCOUNTERED_STEVEN_FIRST        0
 #define FLAG_DEFEATED_WALLY_MAUVILLE         0
 #define FLAG_DEFEATED_GRUNT_SPACE_CENTER_1F  0
 #define FLAG_RECEIVED_SUN_STONE_MOSSDEEP     0

@@ -21,6 +21,7 @@ GraniteCave_StevenRoom_ExitLeft::
 	applymovement LOCALID_STEVEN, GraniteCave_StevenRoom_Movement_ExitLeft
 	waitmovement LOCALID_STEVEN
 	removeobject LOCALID_STEVEN
+	setflag FLAG_ENCOUNTERED_STEVEN_FIRST
 	setflag FLAG_HIDE_GRANITE_GRUNTS
 	setflag FLAG_HIDE_WINONA_GRANITECAVE
 	setflag FLAG_HIDE_BRAWLY_GRANITECAVE
@@ -31,6 +32,7 @@ GraniteCave_StevenRoom_ExitDown::
 	applymovement LOCALID_STEVEN, GraniteCave_StevenRoom_Movement_ExitDown
 	waitmovement LOCALID_STEVEN
 	removeobject LOCALID_STEVEN
+	setflag FLAG_ENCOUNTERED_STEVEN_FIRST
 	setflag FLAG_HIDE_GRANITE_GRUNTS
 	setflag FLAG_HIDE_WINONA_GRANITECAVE
 	setflag FLAG_HIDE_BRAWLY_GRANITECAVE
@@ -41,6 +43,7 @@ GraniteCave_StevenRoom_ExitRight::
 	applymovement LOCALID_STEVEN, GraniteCave_StevenRoom_Movement_ExitRight
 	waitmovement LOCALID_STEVEN
 	removeobject LOCALID_STEVEN
+	setflag FLAG_ENCOUNTERED_STEVEN_FIRST
 	setflag FLAG_HIDE_GRANITE_GRUNTS
 	setflag FLAG_HIDE_WINONA_GRANITECAVE
 	setflag FLAG_HIDE_BRAWLY_GRANITECAVE
