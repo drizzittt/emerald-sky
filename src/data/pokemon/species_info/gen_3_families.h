@@ -4195,7 +4195,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .levelUpLearnset = sMakuhitaLevelUpLearnset,
         .teachableLearnset = sMakuhitaTeachableLearnset,
         .eggMoveLearnset = sMakuhitaEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 24, SPECIES_HARIYAMA}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_HARIYAMA}),
     },
 
     [SPECIES_HARIYAMA] =
