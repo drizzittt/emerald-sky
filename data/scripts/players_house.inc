@@ -296,13 +296,13 @@ PlayersHouse_1F_Movement_MovePlayerAwayFromDoor:
 @PlayersHouse_1F_EventScript_SetUpObjectEventVarsMale::
 @	setvar VAR_0x8008, MALE
 @	setvar VAR_0x8009, LOCALID_DAD
-@	setvar VAR_0x800A, LOCALID_MOM
+@	setvar VAR_0x800A, LOCALID_PLAYERS_HOUSE_1F_MOM
 @	return
 
 @PlayersHouse_1F_EventScript_SetUpObjectEventVarsFemale::
 @	setvar VAR_0x8008, FEMALE
 @	setvar VAR_0x8009, LOCALID_DAD
-@	setvar VAR_0x800A, LOCALID_MOM
+@	setvar VAR_0x800A, LOCALID_PLAYERS_HOUSE_1F_MOM
 @	return
 
 @PlayersHouse_1F_EventScript_DadApproachPlayerMale::

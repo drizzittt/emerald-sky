@@ -24,9 +24,9 @@ LittlerootTown_BrendansHouse_1F_EventScript_PlayerEnterFirst::
 	setflag FLAG_SYS_POKENAV_GET
 	setflag FLAG_RECEIVED_POKENAV
 	setflag FLAG_ENABLE_MOM_MATCH_CALL
-	applymovement LOCALID_MOM, Common_Movement_ExclamationMark
+	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, Common_Movement_ExclamationMark
 	waitmovement 0
-	applymovement LOCALID_MOM, LittlerootTown_BrendansHouse_1F_Movement_MomApproach
+	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, LittlerootTown_BrendansHouse_1F_Movement_MomApproach
 	waitmovement 0
 	msgbox PlayersHouse_1F_Text_MomGiveBag, MSGBOX_DEFAULT
 	closemessage
@@ -56,9 +56,9 @@ LittlerootTown_BrendansHouse_1F_EventScript_PlayerEnterFirst_2::
 	setflag FLAG_ADDED_MATCH_CALL_TO_POKENAV
 	setflag FLAG_SYS_POKENAV_GET
 	setflag FLAG_RECEIVED_POKENAV
-	applymovement LOCALID_MOM, Common_Movement_ExclamationMark
+	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, Common_Movement_ExclamationMark
 	waitmovement 0
-	applymovement LOCALID_MOM, LittlerootTown_BrendansHouse_1F_Movement_MomApproach_2
+	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, LittlerootTown_BrendansHouse_1F_Movement_MomApproach_2
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
 	msgbox PlayersHouse_1F_Text_MomGiveBag, MSGBOX_DEFAULT
@@ -85,9 +85,9 @@ LittlerootTown_BrendansHouse_1F_EventScript_PlayerEnterFirst_2::
 	setflag FLAG_ADDED_MATCH_CALL_TO_POKENAV
 	setflag FLAG_SYS_POKENAV_GET
 	setflag FLAG_RECEIVED_POKENAV
-	applymovement LOCALID_MOM, Common_Movement_ExclamationMark
+	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, Common_Movement_ExclamationMark
 	waitmovement 0
-	applymovement LOCALID_MOM, LittlerootTown_BrendansHouse_1F_Movement_MomApproach_3
+	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, LittlerootTown_BrendansHouse_1F_Movement_MomApproach_3
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
 	msgbox PlayersHouse_1F_Text_MomGiveBag, MSGBOX_DEFAULT
@@ -105,21 +105,21 @@ LittlerootTown_BrendansHouse_1F_EventScript_PlayerEnterFirst_2::
 	end
 
 MoveMom_to_Table::
-	applymovement LOCALID_MOM, PlayersHouse_1F_Movement_MomtoTable
+	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, PlayersHouse_1F_Movement_MomtoTable
 	waitmovement 0
 	setvar VAR_MOM_START_STATE, 1
 	releaseall
 	return
 
 MoveMom_to_Table_2::
-	applymovement LOCALID_MOM, PlayersHouse_1F_Movement_MomtoTable_2
+	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, PlayersHouse_1F_Movement_MomtoTable_2
 	waitmovement 0
 	setvar VAR_MOM_START_STATE, 1
 	releaseall
 	return
 
 MoveMom_to_Table_3::
-	applymovement LOCALID_MOM, PlayersHouse_1F_Movement_MomtoTable_3
+	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, PlayersHouse_1F_Movement_MomtoTable_3
 	waitmovement 0
 	setvar VAR_MOM_START_STATE, 1
 	releaseall
@@ -241,8 +241,8 @@ LittlerootTown_BrendansHouse_1F_EventScript_ShowRunningShoesManual::
 @	end
 
 @LittlerootTown_BrendansHouse_1F_EventScript_MoveMomToStairs::
-@	setobjectxyperm LOCALID_MOM, 8, 4
-@	setobjectmovementtype LOCALID_MOM, MOVEMENT_TYPE_FACE_UP
+@	setobjectxyperm LOCALID_PLAYERS_HOUSE_1F_MOM, 8, 4
+@	setobjectmovementtype LOCALID_PLAYERS_HOUSE_1F_MOM, MOVEMENT_TYPE_FACE_UP
 @	return
 
 @ Many of the below scripts have no gender check because they assume youre in the correct house

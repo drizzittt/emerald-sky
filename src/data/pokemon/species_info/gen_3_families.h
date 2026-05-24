@@ -173,7 +173,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .speciesName = _("Sceptile"),
         .cryId = CRY_SCEPTILE,
         .natDexNum = NATIONAL_DEX_SCEPTILE,
-        .categoryName = _("Storm Basilisk"),
+        .categoryName = _("Storm"),
         .height = 17,
         .weight = 522,
         .description = COMPOUND_STRING(
@@ -247,7 +247,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .cryId = CRY_SCEPTILE,
     #endif // P_MODIFIED_MEGA_CRIES
         .natDexNum = NATIONAL_DEX_SCEPTILE,
-        .categoryName = _("Forest"),
+        .categoryName = _("Storm"),
         .height = 19,
         .weight = 552,
         .description = COMPOUND_STRING(
