@@ -662,3 +662,19 @@ MauvilleCity_Text_ExplainTV:
 
 MauvilleCity_Text_BeenCheckingOutTV:
 	.string "Hi, have you been checking out TVs?$"
+
+MauvilleCity_Text_AldenCall:
+	.string "Hi {PLAYER}! I had a breakthrough\n"
+	.string "on the map you brought me! It looks\p"
+	.string "there should be a key not far from\n"
+	.string "Fallarbor town! Would you be able to\p"
+	.string "get there and look for it?\p"
+	.string "... ...\p"
+	.string "You're in Mauville? Thats perfect!\n"
+	.string "Fallarbor is practically right down the road\p"
+	.string "I'm really close to pinpointing the ruins\n"
+	.string "location, so I'll have to leave the key to you\n"
+	.string "again. I'm certain you can do it! The map shows\p"
+	.string "there should be ruins to the North West of\n"
+	.string "Fallarbor. They key should be in there somewhere.\p"
+	.string "Good luck, and let me know how it goes!"
