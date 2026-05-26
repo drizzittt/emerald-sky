@@ -1748,3 +1748,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/NewRusturf/scripts.inc"
 
 	.include "data/maps/GraniteCave_StevenRoom/scripts.inc"
+
+	.include "data/maps/SlateportCity_OceanicMuseum_3f/scripts.inc"

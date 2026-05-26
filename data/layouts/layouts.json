@@ -9393,6 +9393,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/GraniteCave_StevenRoom/border.bin",
       "blockdata_filepath": "data/layouts/GraniteCave_StevenRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_SLATEPORT_CITY_OCEANIC_MUSEUM_3F",
+      "name": "SlateportCity_OceanicMuseum_3f_Layout",
+      "width": 20,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_OceanicMuseum",
+      "border_filepath": "data/layouts/SlateportCity_OceanicMuseum_3f/border.bin",
+      "blockdata_filepath": "data/layouts/SlateportCity_OceanicMuseum_3f/map.bin"
     }
   ]
 }

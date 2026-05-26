@@ -222,7 +222,8 @@
     "SlateportCity_House",
     "SlateportCity_PokemonCenter_1F",
     "SlateportCity_PokemonCenter_2F",
-    "SlateportCity_Mart"
+    "SlateportCity_Mart",
+    "SlateportCity_OceanicMuseum_3f"
   ],
   "gMapGroup_IndoorMauville": [
     "MauvilleCity_Gym",
